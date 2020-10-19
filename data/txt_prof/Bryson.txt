@@ -1,0 +1,33 @@
+﻿Ethics and Technology 
+
+
+I hold four formal academic degrees: in behavioural science (non-clinical psychology), artificial intelligence (AI), psychology, and computer science (PhD, focus on the systems engineering of AI). I have also published in behavioural ecology, biological anthropology, cognitive science, and philosophy as well as in technology policy, and have a paper near publication in political economy. My fundamental interests are in the nature of intelligence and how it impacts our (and other species!) societies and lives. I came to Hertie School though to focus on better understanding specifically how artificial intelligence alters what we can and should do. I am particularly interested in supervising science-oriented dissertations. These can either: 
+contribute to theory construction by modelling the impacts of technologies particularly communication, or (even better)  
+contribute to theory testing by finding and analysing and/or produce quantitative evidence confirming, disproving, or otherwise addressing existing theories and models. 
+
+
+
+I am open to suggested topics, though see above for the types of suggestions I’m most interested in, and also my publications since 2015. In particular, I do not think it is appropriate to do a purely philosophical dissertation in a governance school. Though philosophy can influence the choice of topics and reasoning is central to all academic endeavours, I am interested first, in helping you learn to form policy and/or persuade through the sound use of evidence. A few possible topics: 
+Deriving from my 2017 Science paper on word embeddings: 1) What is “unpleasant” about African American names? 2) Can we show whether Whorf is right or wrong? Do labour terms (for example) have different meanings in different languages? 
+Deriving from my arxiv paper (hopefully soon published) on political polarisation: 3) who has been able politically to use science to change culture during the pandemic crisis? 4) does the extent of affective bias correlate with the extent of political polarisation? 
+Concerning the future of work (see the arxiv / soon to be published paper by David Autor, not me for methodological hints): 5) Why are White men without college educations withdrawing from the workforce in the USA? Is there a reason for why Black men have participated less relative to Black women other than racism, and are White men finding themselves increasingly in the same context? 
+Concerning transparency (scientific communication to policy makers or the general public): 6) transparency in agent-based models of the pandemic (or other agent-based or scientific models), 7) transparency in the moral status of human-like AI systems. 
+Concerning transparency for accountability and governance 8) transparency in software development by and/or for governments, corporations, or other large agencies, 9) transparency in automated decision making. 
+
+
+See “supervisory style” below. I am willing to supervise dissertations based on methods I am not myself able to explicitly teach. I can still guide and advise. Interdisciplinary work requires drawing together knowledge from a variety of fields. You may need to take courses in data science or causality for some of the above topics. I am willing to provide moderate financial support for e.g. surveys, data access etc. for good projects. See my publications for examples of methods I have already published on. 
+
+I expect masters students to be very capable of self-learning, but also to need guidance in matters of experience such as what are good topics, where can resources be found, how large of a project should be attempted, when during the semester you may want to scale up or down your expectations for the project. I do most of my supervision through weekly group meetings, and encourage students to work together on learning new techniques and discovering resources. I expect students to require one or two individual meetings a semester as well, in order to pick apart very individual problems to their topic. One individual meeting is typically the week before semester or the first week of semester. Because of time pressure, I do not provide much email support, but would consider setting up slack or teams for the students. I often publish with masters students (and sometimes undergraduates.) 
+
+This is my first year supervising masters dissertations at Hertie School. I was not able to supervise for the past five years at my previous university (Bath) because I was living in the USA, but you can see older dissertations (including PhD and undergraduate) here: http://www.cs.bath.ac.uk/~jjb/here/dissertations.html The PhD dissertations are probably more relevant in terms of topics than those of the masters and undergraduate students studying for computer science degrees, but you may find some interesting topics in those as well. 
+
+See the papers here https://www.joannajbryson.org/ethics-and-policy-of-technology and in particular https://www.bbvaopenmind.com/en/articles/the-past-decade-and-future-of-aisimpact-on-society/ 
+
+The arxiv paper on polarisation mentioned earlier is here: https://arxiv.org/abs/1807.11477
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+

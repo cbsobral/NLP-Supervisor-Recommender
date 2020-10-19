@@ -1,0 +1,125 @@
+---
+title: "idf"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# set path to the PDF 
+pdf_path <- "/cloud/project/python/pdfs"
+
+# List the PDFs 
+pdfs <- list.files(path = pdf_path, pattern = 'pdf$',  full.names = TRUE) 
+
+# Import the PDFs into R
+spill_texts <- readtext(pdfs, 
+                        docvarsfrom = "filenames")
+
+spill_corpus  <- corpus(spill_texts)
+
+plan_doc <- dfm(spill_corpus, groups = "docvar1", 
+           remove_numbers = TRUE, 
+           remove_punct = TRUE,
+           remove_symbols = TRUE,
+           verbose  = FALSE)
+
+#remove frequent words
+plan_doc <- dfm_trim(plan, max_docfreq = 0.9,
+    docfreq_type = "prop")
+
+```
+
+```{r}
+files <- list.files(pattern = "pdf$")
+super <- lapply(files, pdf_text)
+corp <- VCorpus(VectorSource(super))
+```
+
+
+```{r}
+#most frequent words by doc_id
+spill_words <- spill_texts %>%
+  unnest_tokens(word, text) %>%
+  count(doc_id, word, sort = TRUE)
+
+spill_words
+
+
+spill_words_select <- spill_texts %>%
+  select(doc_id = "Jankin.pdf") %>% 
+  unnest_tokens(word, text) %>%
+  count(doc_id, word, sort = TRUE)
+```
+
+
+```{r}
+#bind idf
+proj_words <- proj_texts %>%
+  unnest_tokens(word, text) %>%
+  count(doc_id, word, sort = TRUE)
+
+proj_words <- proj_words %>%
+  bind_tf_idf(word, doc_id, n)
+
+#idf words by doc
+proj_words%>%
+  as.data.frame() %>% 
+  arrange(desc(tf_idf)) 
+
+#graph words per prof -- also in graph.R
+proj_words %>%
+  arrange(desc(tf_idf)) %>%
+  mutate(word = factor(word, levels = rev(unique(word)))) %>% 
+  group_by(doc_id) %>% 
+  top_n(10) %>% 
+  ungroup() %>%
+  ggplot(aes(word, tf_idf, fill = doc_id)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = "tf-idf") +
+  facet_wrap(~doc_id, ncol = 3, scales = "free") +
+  coord_flip()
+
+```
+
+
+
+
+```{r}
+#bind idf for professors
+spill_words <- spill_words %>%
+  bind_tf_idf(word, doc_id, n)
+
+#idf words by doc
+spill_words %>%
+  as.data.frame() %>% 
+  arrange(desc(tf_idf)) 
+
+#graph words per prof -- also in graph.R
+spill_words %>%
+  arrange(desc(tf_idf)) %>%
+  mutate(word = factor(word, levels = rev(unique(word)))) %>% 
+  group_by(doc_id) %>% 
+  top_n(5) %>% 
+  ungroup() %>%
+  ggplot(aes(word, tf_idf, fill = doc_id)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = "tf-idf") +
+  facet_wrap(~doc_id, ncol = 3, scales = "free") +
+  coord_flip()
+```
+
+
+
+
+```{r}
+tdm <- TermDocumentMatrix(corp,
+                         control = list(weighting = weightTfIdf,
+                                        removePunctuation = T,
+                                        removeNumbers = T,
+                                        stemming = F))
+
+```

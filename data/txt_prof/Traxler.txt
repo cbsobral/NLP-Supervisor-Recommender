@@ -1,0 +1,105 @@
+Professor of… 	Economics 
+
+
+My main area of research is in taxation, in particular empirical studies on tax evasion and tax enforcement. In fact, (law / norm) enforcement policies (beyond taxation) form the core of my research work. 
+A second strand of work lies in behavioural and experimental economics where I use randomized controlled trials (RCTs) to evaluate Nudges and other behaviourally informed interventions.   In addition, I work on the economic analysis of crime and norm violations more generally. 
+
+I am also interested in questions related to gun policy, the regulation (and the social costs) of access to alcohol and ‘sin goods’ (sugar taxation!). Further details on my work are available at my Hertie School webpage.  
+
+In terms of methods, I use a mixture of quantitative methods, mainly exploring different (quasi-) experimental impact evaluation strategies. I also work with online-surveys and lab experiments.  
+
+Important Point:  I very strongly support team work! Team work is particularly valuable in datadriven theses. 
+
+
+
+I am more than happy to advise thesis projects which directly or indirectly relate to the research areas mentioned above and Econ Policy topics more broadly. In addition, I do supervise quantitative theses on many other topics as long as there is some overlap with my methodological expertise.  
+
+I am also interested in evidence based policy making (in particular, at the regional and local level), the political economy of evidence usage/dissemination/communication as well as the formation of “Nudge Units” or data units (at all levels of government).  
+
+
+I encourage students to do quantitative work. This is the method where I have most expertise. Hence, I’m happy to support all sorts of empirical, quantitative studies (ideally - but not necessarily - with a focus on causal inference), small- and large -scale experiments (a.k.a. “Randomized Controlled Trials”), survey-experiments, etc. 
+I also welcome theoretical analyses (i.e., analytical modeling) with a clear policy focus. 
+In addition, I also supervise non-quantitative theses (e.g., literature reviews), as long as the topic relates to my own expertise (see above).  
+
+A few clarifications: 
+If you do data work, you are free to work with Stata, R, or any other software/code.  
+In general, I cannot support you with data access issues: gathering data is part of your work! (Of course, I will offer detailed feedback to shape and refine research ideas.) As an exemption to that rule, however, I have outlined some projects where I could provide you with data access (see the >[Data available]< label below).  
+I very much support replications (and extensions) of existing, policy relevant studies. Replications a valuable part of research. 
+
+
+I provide students with detailed feedback on their methods and research strategies. Regarding the write-up of your results, I will give detailed feedback on the structure of the work. However, I do not pre-read any text drafts. It should be your text, not mine. 
+
+For those doing empirical work with the focus on causal identification, I recommend to read the following texts: 
+
+Gertler, Paul J. et al. (2011), Impact evaluation in practice, Washington: The World Bank.  Available for download here: http://www.worldbank.org/ieinpractice  
+
+A more advanced read is: 
+
+Angrist, J.D., and J.S. Pischke (2008). Mostly Harmless Econometrics: An Empiricist's Companion, Princeton, NJ: Princeton University Press. 
+
+
+
+Ad hoc topics related to topical policy questions in the mobility/transportation domain: 
+
+A policy assessment of speed limits  
+(with a focus on the German case) 
+
+More Cash for Clunkers? The pros/cons of subsidizing car purchases/”car retirement” programs. 
+
+Should Governments subsidize E- and/or hybrid Cars? 
+
+How should we Tax Cars? (focus on German KfZ Steuer) 
+
+What Works? Cities as the new drivers of evidence-based policy making 
+
+The Obama administration was characterized by building up human capital in the areas of behavioral science and by further boosting the idea of evidence based policy making. Trump’s arrival has then resulted in a massive brain drain towards lower states and, in particular, towards cities. US cities have been growing in their capacities to design and pro-actively evaluate (either traditional or behavioral informed) policies. Best known cases are, e.g., Washington D.C.’s “The LAB @ DC” or Bloomberg’s WhatWorksCities initiative.  
+A thesis project could either (i) analyze/ summarize this trend and/or (ii) speculate about imitation of this movement in continental Europe. 	City of Berlin 
+Did Tax Morale improve over the very long term? 
+
+The objectives of this project are twofold: in a first step, a team of students will study evidence on tax morale based on 
+“old” (but unexplored) survey data from Germany for the 1960s and 1990s. In a second step, the team will design, implement and evaluate an updated survey to compare trends in tax morale over a long period of time. [Data available] 	 
+
+
+
+Optimal Self-Reporting of Economic Crimes (like Tax Evasion, Financial Fraud, etc.) 
+
+In recent years, the rules for self-reporting of tax evasion have become considerably stricter [and the consequences harsher] in many European countries. Many perceive the possibility to escape sanctions by self-reporting still unfair. This project analyzes motives for self-reporting and asks which design of self-reporting rules is optimal. The discussion should be based on an extensive literature review (e.g., on tax amnesties, see link), theoretical studies and/or the analysis of empirical data.  	BMF Berlin 
+Corruption Norms and Norm Compliance: Traffic Violations of Diplomats in Germany 
+
+Diplomatic immunity means that traffic violations of diplomats do – in general – not result in any fines or sanctions. The main determinants of not-abusing immunity and complying with traffic rules can therefore be related to the social norms within different diplomatic units. Using data on traffic violations of diplomats in Berlin (and, potentially, Bonn) this project assesses variations in the frequency of traffic offenses between different countries and over time.  
+
+For closely related work and some news coverage (in GER), see: 
+Fisman, Raymond and Edward Miguel. “Corruption, Norms and Legal Enforcement: Evidence from Diplomatic Parking Tickets.” Journal of Political Economy 115, 6 (2007): 10201048.  
+http://www.sueddeutsche.de/panorama/diplomaten-inberlin-auf-kriegsfuss-mit-der-strassenverkehrsordnung-
+1.2336559  
+
+German language skills are condition-sine-qua-non. 	 
+Cross-Country Comparison of Tax Administration and Enforcement 
+
+The way taxes are collected and tax payments are enforced become a central aspect of tax system comparison. In contrast to tax rates and measures of tax progressivity, however, tax collection efforts have not been compared in quantitative terms. Building up such a quantitative database is the starting point for this project. The main objective is to start building up a quantitative measure of (different dimensions of) tax enforcement. Based on this measure (these measures) one can study cross-country variation in revenue raising potential, the level of formal tax rates and other dimensions of tax policies and their perception. 
+
+See, e.g., OECD (2013), Tax Administration 2013: Comparative Information on OECD and Other Advanced and Emerging Economies. 	 
+Regulation of Alcohol Access and its Impact on Crime and Health 
+
+Different German states and cities introduced different types of local and temporal sales and consumption regulations (e.g., no alcohol on public transports) at different points in time. The aim of this project is to study the impact of such regulations on alcohol related crimes. 
+
+Note: There is no need to focus on Germany! Similar policy experiments might have also happened in other European or non-European countries. 
+
+One would have to (a) build up a data-set that captures the details of these drinking bans/ alcohol regulations and (b) compile detailed, city level crime data (e.g., in Germany from the PKS) and, e.g., data on hospital admissions, etc. 	 
+Procrastination, Inertia and Taxation 
+
+It is commonly observed that (some) taxpayers file their tax returns quite late, despite the fact that they know that they will get tax refunds. The reasons and motives behind taxpayers’ revealed willingness to provide massive (zerointerest) credits to governments are still not understood, nor do we know about policy tools to “correct” this behavior. This project will study the timing of taxation (deadline for filing, timing of actual filing) in one or several selected countries. Ideally, the project derives policy recommendations to improve timely tax filing of procrastinating citizens. 
+
+For related work, see, e.g.  
+
+Jones, D. (2012), Inertia and Overwithholding: Explaining the Prevalence of Income Tax Refunds, American Economic Journal: Economic Policy, Vol 4(1): 158–185.  
+Slemrod et al. (1997), April 15 Syndrom, Economic Inquiry, Vol 35: 695-709.  
+
+
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+
+
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+

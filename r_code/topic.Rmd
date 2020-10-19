@@ -1,0 +1,175 @@
+---
+title: "topics"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen = 999)
+```
+
+```{r Data}
+# set path to the PDF 
+pdf_path <- "/cloud/project/python/pdfs"
+
+# List the PDFs 
+pdfs <- list.files(path = pdf_path, pattern = 'pdf$',  full.names = TRUE) 
+
+# Import the PDFs into R
+spill_texts <- readtext(pdfs, 
+                        docvarsfrom = "filenames")
+```
+
+```{r}
+spill_corpus  <- corpus(spill_texts)
+
+
+stopwords1 <- c("research", "topic", "mpp", "mia", "supervision", "session", "thesis", "academic", "work", "students", "plan", "applicable", "readings", "colloquium", "ay2020", "topics", "plagiarism", "xx.xx", "t.b.a", "e.g", "related", "assignment", "project", "proposal", "page", "henke", "ghodes", "slides", "presentation", "powerpoint", "tba", "labs", "min", "also", "one", "ercas", "draft", "will", "literature", "review", "master", "aim", "meeting", "information", "question", "can", "case", "use", "used", "taught", "good", "individual")
+
+plan <- dfm(spill_corpus, groups = "docvar1", 
+           remove = c(stopwords("english"),stopwords1),
+           remove_numbers = TRUE, 
+           remove_punct = TRUE,
+           remove_symbols = TRUE,
+           verbose  = FALSE)
+
+#remove frequent words
+#plan <- dfm_trim(plan, max_docfreq = 0.9,
+#    docfreq_type = "prop")
+```
+
+
+```{r load projects}
+doc_path <- "/cloud/project/python/projects"
+
+# List 
+docs <- list.files(path = doc_path, pattern = 'docx$',  full.names = TRUE) 
+
+# Import 
+proj_texts <- readtext(docs, 
+                        docvarsfrom = "filenames")
+
+proj_corpus  <- corpus(proj_texts)
+
+
+proj_dfm <- dfm(proj_corpus, groups = "docvar1", 
+           remove = stopwords("english"),
+           remove_numbers = TRUE, 
+           remove_punct = TRUE,
+           remove_symbols = TRUE,
+           verbose  = FALSE, 
+           stem = T)
+
+#remove frequent words
+#proj_dfm <- dfm_trim(proj_dfm, max_docfreq = 0.9,
+ #   docfreq_type = "prop")
+
+```
+
+
+```{r lda}
+#calculate lda
+plan_lda <- LDA(plan, k = 12, control = list(seed = 123))
+
+#perplexity score (lower is better)
+perplexity(plan_lda)
+```
+
+
+```{r top_terms}
+#probability of term being generated from topic
+plan_topics <- tidy(plan_lda, matrix = "beta")
+
+top_terms <- plan_topics %>%
+  group_by(topic) %>%
+  top_n(5, beta) %>%
+  ungroup() %>%
+  arrange(topic, -beta) %>% 
+  arrange(desc(beta))
+
+top_terms
+
+#graph result -- also in graph.R
+top_terms %>%
+  mutate(term = reorder_within(term, beta, topic)) %>%
+  ggplot(aes(term, beta, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  coord_flip() +
+  scale_x_reordered()
+```
+
+```{r doc classification}
+#gamma --  XX% of the words in document X that were generated from topic X
+
+plan_gamma <- tidy(plan_lda, matrix = "gamma")
+
+
+#table higher gamma per professor
+plan_gamma %>% 
+  group_by(document) %>% 
+  slice_max(gamma, n = 3, with_ties = FALSE) %>% 
+  filter(gamma > 0.4) %>% 
+  arrange(topic)
+  
+#visualize doc classification per topic
+#proj_gamma %>%
+  #mutate(document = reorder(document, gamma * topic)) %>%
+  #ggplot(aes(factor(topic), gamma)) +
+  #geom_boxplot() +
+  #facet_wrap(~ document)
+
+```
+
+
+
+```{r comparison}
+#probabilities per doc
+test_topics <- posterior(plan_lda, proj_dfm)
+
+#data frame with results
+topics_dat <- as.data.frame(test_topics$topics) 
+topics_dat
+
+#rename first column
+topics_dat <- cbind(rownames(topics_dat),topics_dat)
+rownames(topics_dat) <- NULL
+colnames(topics_dat) <- c(names(topics_dat)) #to not write all the column names
+colnames(topics_dat)[1] <- "id"
+
+#pivot_longer
+topics_dat <- topics_dat %>%
+ pivot_longer(
+   cols = 2:13,
+   names_to = "topic",
+   values_to = "prob")
+
+
+topics_dat %>% 
+  group_by(id) %>%
+  slice_max(prob, n = 2, with_ties = FALSE)
+```
+
+
+
+```{r}
+#top topic easy way :)
+top_topic_per_doc <- apply(test_topics$topics, 1, which.max)
+top_topic_per_doc
+```
+
+
+```
+1	"MungiuPippidi, Shaikh"
+2	"Jankin, Patz"
+3	"Cingolani, Traxler"
+4	"GohdesHW, Hustedt, Kreyenfeld, Mena"
+5	"Anheier, Cali, Graf"
+6	"Dawson, Hammerschmid, Hassel, Iacovone, Jachtenfuchs, Wegrich"
+7	"Munzert, Stockman"
+8	"Hirth, Kayser, Mair"
+9	"Bryson, Costello, Hallenberg, Snower"
+10 "Flachsland, Reh"
+
+```
+

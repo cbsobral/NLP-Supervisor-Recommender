@@ -1,0 +1,52 @@
+Professor of… 	Assistant Professor of Governance of Digitalisation and Energy Policy 
+
+
+The closer your topic is to my research interest, the better my supervision will be. If your topic is only remotely connected to my fields of expertise, I will be able to grade your thesis, but I won’t be able to support you in any meaningful way.  
+I am an economist by training (and by heart), and I primarily work quantitatively. My own research interest and my area of expertise lie in energy economics; please have a look at my publications to get a better idea. In particular, I am familiar with the following fields:   
+The economics of renewable energy, such as the market value of wind and solar energy, system integration, and impacts on electricity markets and prices;  
+Energy policy, in particular carbon pricing, support schemes for renewable energy and auction design for renewables;   
+Electricity system modeling, in particular numerical power market modeling such as EMMA;   
+Electricity markets, including topics such as electricity market design, energy-only markets, balancing systems, the European integration of electricity markets, prosumers and behind-the-meter storage;  
+Power markets and networks, in particular nodal pricing, re-dispatch, locational markets for flexibility and locational investment incentives; and  
+Open science, including open data, open source software and re-use of scientific methods.  
+I am willing to supervise theses that (i) have energy as a topic, or (ii) fall within economics as a field, or (iii) use a quantitative method such as econometrics or numerical modeling. Ideally, a thesis fulfills two or three of these criteria.  
+
+
+
+
+Practice partners and group work  
+I strongly encourage students to work with practice partners. To find a practice partner, a good option is the mentoring program run by HEEN, the Hertie Energy and Environment Network. The HEEN mentoring program aims to match Hertie students with alumni and non-alumni professionals in the field of energy and environment. Program participants are free to choose the exact scope and intensity of the mentoring envisioned for the development of the master thesis.   
+
+I strongly encourage students to work in pairs. Group proposals will generally be given priority over individual proposals.  
+
+Below you find a list of ideas for master thesis topics. Some are pretty specific and well thoughtthrough, others are mere fields or topics that I find interesting. In some projects, Tarun Khanna (TK), Oliver Ruhnau (OR), Anselm Eicke (AE) or Raffaele Sgarlato (RS) would be interested in cosupervising.  
+Project title or research question  
+Predicting network congestion. In electricity systems, it is often relevant to predict the occurrence of line overload (grid congestion) a few hours or days before they occur. In this work, econometric methods are used to predict congestion based on variables such as wind and solar generation, imports and exports of electricity, load levels, among other regressors. Prediction could be made at the national level (redispatch volumes), individual lines, or redispatch of individual power plants. (econometrics)  
+Incentive-based instruments for electricity generation I. Why has the EU, unlike the U.S., opted for command control instruments for pollutants, rather than incentive-based instruments such as an ETS or a tax? (literature review)  
+Incentive-based instruments for electricity generation II. Which power generation externalities are well-suited for incentive-based regulation, which are not? (literature review)  
+Market value of wind and solar energy. An update of Hirth (2013) based on new and expanded data, new econometrics, more geographies. (econometrics)  
+What caused the decline in electricity consumption? (TK) Electricity consumption in many rich countries has dropped during the financial crisis and has not recovered since then. Various explanations are discussion: the ongoing sluggish economic growth, improved energy efficiency, and outsourcing of energy-intensive industries to other countries. The goal of this thesis is to disentangle and quantify these effects for a number of countries. (data analysis / econometrics)  
+Estimating emissions intensity of power systems: Emissions intensity of electricity generation is needed for estimating impact of all forms of demand side interventions, EVs, storage.   
+Marginal vs. Average emissions intensity. What is also required for a proper analysis is not the average emissions intensity in a system but rather the marginal emissions intensity. There is decent literature on the diffence between the two mostly using models in the US. The results are indeed different. For example, just because a measure, say EV charging at night, reduces electricity consumption during peak hour it may not reduce emissions if generation in peak hours is from hydro. Many of these papers employ econometrics but clearly production cost can also be employed.   
+Short term vs. long term intensity. Further as systems decarbonize the marginal impact of such measures will change. Clearly when the system is 100% decarbonized demand side measure make no difference from a emissions perspective. But what is interesting is how the marginal emissions evolve during the process. I only found one paper that uses the TIMES model for UK to assess such long term marginal emissions intensities. That paper assumes a decarbonized system with basically nuclear at it's core, which seems unrealistic to me. Assessing how these systems evolve with high VRE could be interesting.  
+Risk in low-carbon electricity systems. Renewable energy and other low-carbon power generation technologies are investment-intensive. This exposes them to high market risk. 
+(theoretical discussion & analytical model)  
+The value of the solar PV learning curve. Germany has spent about EUR 250bn in solar PV deployment. The main benefit, it is sometimes argued, lies in reduction of future costs due to learning-by-doing, a phenomenon often represented as a learning curve. What is the economic value of this learning and which actors/countries/generations are the one benefitting? (theoretical discussion & quantifications)  
+Recent electricity market liberalization (AE). Case study of two recent cases of electricity market liberalization; review of crucial design choices. (literature review)  
+Smart meter and retail pricing review (OR). Review of the status quo of electronic (“smart”) meter globally; overview of purpose (electricity theft vs. price-elastic demand); review of corresponding retail pricing (time-of-use pricing, dynamic pricing, invariant prices, etc.). (literature review)  
+Variable tariffs (OR). How prevalent are variable tariffs across Europe and across different consumer segments? What are the policy and technology (smart meters) drives behind these? (literature review & interviews)  
+The impact of batteries on balancing. (TK) Review of battery expansion in Germany plus 1-2 further European countries. Empirical analysis of balancing reserve prices in DE. Discussion of possible effects of reserve prices with a focus on the impact of the expansion of batteries on capacity prices. (literature review + data analysis).  
+Economic value of subsidized loans for renewable energy. (TK) Estimate the (global) economic value of below-interest rate loans issues to renewable energy project developers by state-owned banks such as EIB, EBRD, KfW and World Bank.  
+Network tariff design (AE). An theoretical discussion of efficient / sensible / feasible design of (distribution) network charges, possibly complemented with some data-based assessment. Focus should be the multiple objectives (energy conservation, climate policy, distribution and fairness, risk), the various options (capacity vs. volumetric charges, time-of-use and critical peak pricing).  
+Can storage be a substitute for transmission investment? (AE) How does the location of storage effect the need for transmission infrastructure? How do the market design and other regulatory incentives affect this outcome? (Literature review and modeling  time series analysis)  
+Locational instruments for electricity consumption. (AE) Literature review on regulatory instruments that incentivize consumers of electricity to move to locations in which generation is cheapest. Which instruments are there and how effective are they?  
+The effect of flexibility options on the revenues of generators (AE) Modelling exercise: what is the effect of different flexibility options such as storage or transmission infrastructure on the market value of different generation technologies? How do they affect power prices and the need for curtailment?  
+Free bids in balancing markets (OR). In 2021, Germany will introduce so called “free bids” (“Regelarbeitsmarkt”) in balancing markets. What is the effect that this will have on balancing markets, imbalance prices, and system security?  
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+
+	 	 
+
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+

@@ -1,0 +1,31 @@
+Professor of… 	Data Science and Public Policy 
+
+My general academic field is data science. My research and teaching are primarily in the fields of natural language processing (NLP) and machine learning (ML). Generally, I will supervise theses that focus on applications of data science, ML and NLP techniques in substantive research or methodological work. 
+Data science, ML and NLP applications in climate change and health, international development, public administration, and comparative politics. 
+
+Machine learning and natural language processing 
+
+Supervision will be conducted by colloquia and, if needed, individual meetings. Team projects are also welcome. The goal is to develop good projects into publishable scientific papers. 
+
+“Mapping Poverty in Bangladesh with Satellite Images and Deep Learing” by Dang Ngoc Huy (Class of 2020) 
+
+
+Proposed Projects: (if applicable)  
+Project Title 	Practice Partner (if applicable) 
+There is significant debate and discussion in the literature on approaches to international development. Yet, we know little about how different countries have approached the issue of international development, and how this has changed over time. We know little about the key differences in how richer countries and poorer countries approach international development.  
+This project will look at how “international development” is discussed in the annual UN General Debates and the evolution of the term over time. In particular, it will aim to identify the key development issues raised by different countries, and how these issues have changed over time. It will aim to identify the international development issues that have widespread support among states in the UN, and those that are most contested. 	 
+A significant literature looks at the influence of international aid on foreign policy preferences. See: http://aiddata.org/replication-datasets. In general, these studies have tended to use voting in the UN General Assembly to examine whether aid is used by donor governments to “buy” votes. 
+There has been little consideration of whether aid can lead to a deeper shift in foreign policy preferences due to changing the norms etc in the recipient government. This is surprising given the literature on aid and democratisation suggests that aid can have this positive effect. 
+This project will draw on the UN General Debate Corpus to examine whether foreign aid can lead to such a deeper shift. The focus is on assessing whether an aid relationship between two countries leads to a convergence of foreign policy preferences. In addition, the project will consider an interaction of aid (and budget support) and democratisation that may result in shifts in foreign policy preferences. 	 
+The transition from the Millennium Development Goals (MDGs) to the Sustainable Development Goals (SDGs) brought with it significant changes in the process of creating the goals and with the actual content of the SDGs. One of the most important developments was the inclusion of SDG 16, which recognises the central role of effective, accountable and inclusive political institutions in promoting sustainable development. The interconnectedness of the 17 SDGs has been widely discussed in the literature. Many, however, argue that progress on SDG 16 in particular, is crucial for achieving the other SDGs. This is because the Goal is centred on the organisation of power in society and nature of governance, which is crucial for implementing policies that positively impact issues such as poverty, hunger, health, education, gender equality, water and sanitation, and climate change. Without good governance and strong institutions, it will not be possible to address these issues captured in the other SDGs.  
+Yet, a significant shortcoming is the difficulty in measuring progress on this SDG 16. In addition to general issues linked with data availability across the various indicators, a key challenge is aggregating trends across these wide-ranging indicators to track overall progress on SDG 16. A second issue that follows, is that despite claims regarding the centrality of SDG 16 for achieving the other SDGs, 	 
+little is known about the causal pathways from the different indicators in SDG 16 to the other SDGs and associated indicators. 
+This project will explore how changes in SDG 16 indicators impact a country’s progress towards indicators linked to health, gender equality, water and sanitation, and climate change. The aim is to use data science and machine learning techniques to track progress on SDG 16 by bringing together data across the different indicators; and measure the impact of the different aspects of SDG 16 on other SDGs. 	
+
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+
+
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+

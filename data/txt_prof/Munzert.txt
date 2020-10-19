@@ -1,0 +1,68 @@
+Professor of… 	Data Science and Public Policy 
+
+
+I am a political scientist by training and data scientist by practice. Areas I have worked in include: 
+comparative politics 
+political behavior and voting 
+(digital) political communication 
+public opinion 
+election forecasting 
+experimental methods 
+measuring human behavior with online data 
+
+
+My current research agenda is mainly driven by two questions:  
+How do online media change political communication, preference formation, and participation in democratic systems? 
+How can new digital data sources (such as social media data, data on online behavior, and user-generated meta data) be used to study political and social phenomena? 
+Projects I am currently working on tackle the following questions:  
+
+How are citizens’ preferences for online hate speech regulation shaped? 
+What are the consequences of hate speech regulation for self-censorship? 
+What is the effect of online partisan media exposure on political preferences? 
+What is the causal effect of voting advice applications on political engagement and voting preferences? 
+How can we forecast turnout at future elections? 
+How engaged is the public in consequences of global warming for human health? 
+How can we measure the prominence and influence of political elites? 
+
+Given my own research agenda, I prefer to supervise empirical work that uses quantitative methods. In terms of methods and research design strategies, I feel comfortable with giving advice and support on the following topics: survey design, experiments, measurement, causal inference, regression analysis, multilevel modeling, panel data, web and social media data collection, and quantitative meta-analysis. 
+You are encouraged to propose your own research topic. It should be somewhat connected to my areas of research. Some example topics, which are also available for your thesis, are listed below.  
+Your project should focus on a well-defined question and be empirical in nature. 90% of the research I consume is quantitative, so I see my own expertise in advising quantitative work.  
+My goal is (and your goal should be) that your results will ultimately be made available for the scientific community (and probably even communicated to the broader public). Therefore, the thesis should result in a publishable research paper that (a) motivates the subject of research, (b) gives a thorough overview of the literature, (c) precisely outlines your research design and (d) presents a rigorously conducted empirical analysis that gives meaningful answers to the research question. I will give detailed feedback on the structure of your work (but will not revise text drafts in advance). 
+I will strongly encourage you during the sessions to collaborate in extending your set of statistical and programming skills. I accept single as well as co-written theses. Please indicate whether you prefer to work on your own or to collaborate. In the latter case, you do not have to have someone particular in mind when submitting the proposal. 
+I will provide detailed feedback on your ideas and work as soon as possible. If you are interested in working with web-based data, I’ll be happy to help with setting up automated data collection procedures. However, the actual data collection should be conducted by you. For tough R-related problems, my door will be open to you. 
+Outside the regular sessions, I will be available for additional advice during my office hours. If you want to visit, please drop me an email with bullet points summarizing the agenda of our meeting. If you cannot make it to the regular office hours, we will find an alternative date. 
+
+Privacy and Democracy in a Cambridge Analytica World: Predicting Party Choice from Browsing History 
+YouTube News and Politics Media Diets: A User-based Analysis of Filter Bubbles and the Recommendation Algorithm 
+How Do Haters Hate? An Analysis of Hate and Offensive Speech against Greta Thunberg on 
+Twitter 
+Between Deliberation and Polarization: Analyzing Patterns of Germans’ Online Media Diets 
+The distant impact of nuclear disasters: Consequences of the Fukushima accident on German political preferences 
+Predicting Voting Behavior from Search Engine Queries 
+
+
+
+Kellstedt, P., & Whitten, G. (2018). The Fundamentals of Political Science Research. Cambridge: Cambridge University Press. 
+Gelman, A., Hill, J., & Vehtari, A. (2020): Regression and Other Stories. Cambridge University Press. 
+Salganik, M. J. (2019). Bit by Bit: Social Research in the Digital Age. Princeton University Press. 
+King, G., Keohane, R. O., & Verba, S. (1994). Designing Social Inquiry: Scientific Inference in Qualitative Research. Princeton University Press. 
+
+Online media use and preferences for hate speech regulation (https://bit.ly/2ZfT5pT, https://bit.ly/2Zmb79Q) 
+
+The politics of eating: food choice, food literacy, and political preferences (https://bit.ly/2GSoB61) 
+
+What drives enduring shifts in party support? (https://goo.gl/QfxBNp) 
+
+Hidden communication on the Wikipedia by political elites (https://shorturl.at/oDP27)  
+
+Measuring citizens’ issue attention using Wikipedia data (https://goo.gl/f4HBmE) 
+
+Assessing gender bias in political content on Wikipedia (https://bit.ly/2ZhWJzG,  https://bit.ly/2LMtotX) 
+
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+
+
+
+	 	 	MIA/MPP - Supervision Plan AY2020/2021        1 
+
