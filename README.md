@@ -22,6 +22,7 @@ With [streamlit](https://www.streamlit.io/), we are developing the user's interf
 
 ## Next Steps 
 In the next weeks, we plan to test our model with a few research proposals, identify opportunities for enhancement of accuracy in topic matching and improve the code, as needed.
+
 We also intend to develop the user's interface further.
 
 ## References
