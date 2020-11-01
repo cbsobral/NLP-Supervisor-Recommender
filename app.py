@@ -204,10 +204,3 @@ concat_recom.columns =['Topic '+str(first_choice), 'Topic '+str(second_choice), 
 # Print results
 st.subheader("Here are our recommendations:")
 st.table(concat_recom.assign(hack='').set_index('hack'))
-
-
-
-
-
-
-
