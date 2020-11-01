@@ -6,7 +6,7 @@ These supervision plans compose the “corpus” of the work, from which we deri
 
 Then, we apply the model to the text of a student's research proposal, to extract the best matches between their interests and the topics of our model.
 
-Finally, we recommend three supervisors that match the student's most prominent topic interest.
+Finally, we recommend the supervisors that match the student's most prominent topic interest.
 
 Topic modeling is based on the assumption that each document in a text is a combination of certain topics and that each topic is a combination of related words.
 
