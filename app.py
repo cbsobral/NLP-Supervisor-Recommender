@@ -3,6 +3,7 @@ import pandas as pd
 import nltk
 from nltk.corpus import PlaintextCorpusReader
 from nltk.corpus import stopwords
+import gensim
 from gensim import models
 import numpy as np
 import plotly.express as px
@@ -60,7 +61,7 @@ lda_model =  models.LdaModel.load('lda_model')
 
 
 ### Text input or upload ----------
-st.subheader("Your research goes here:")
+st.subheader("Your research proposal goes here:")
 default_value = "Your research could be about politics, or taxation, or health inequalities."
 ud_text = st.text_area("", default_value)
 
@@ -114,7 +115,7 @@ tw_results = topic_words[(topic_words['topic'] == first_choice) | (topic_words['
 
 ## Word Cloud ----------
 st.set_option('deprecation.showPyplotGlobalUse', False)
-
+st.subheader("This are the words most commonly associated with each topic:")
 # First_choice
 # Wordcloud
 text1_fc = topic_words[(topic_words['topic'] == first_choice)]
@@ -155,7 +156,7 @@ plt.axis("off")
 st.pyplot()
 
 ## Visualize graph with info from `tw_results` 
-st.subheader("This are the words most commonly associated with each topic:")
+st.subheader("This are the words most commonly associated with each topic (in a graph):")
 df = tw_results
 fig = px.bar(df, x="value", y="word", orientation='h', text='word',
              facet_col="topic")
@@ -204,3 +205,10 @@ concat_recom.columns =['Topic '+str(first_choice), 'Topic '+str(second_choice), 
 # Print results
 st.subheader("Here are our recommendations:")
 st.table(concat_recom.assign(hack='').set_index('hack'))
+
+
+
+
+
+
+
