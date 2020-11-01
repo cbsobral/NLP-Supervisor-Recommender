@@ -18,7 +18,7 @@ In the [topic_choices.ipynb](https://github.com/cbsobral/python/blob/master/topi
 
 Although we experimented with both LDA and TD-IDF, we are leaning towards using the former, because so far, it yielded more accurate matches. 
 
-With [streamlit](https://www.streamlit.io/), we are developing the user's interface, where student's can input their research proposals and receive our output. We are still in the initial stages with this, but the script can be found in the [app.py](https://github.com/cbsobral/python/blob/master/app.py) file. 
+With [streamlit](https://www.streamlit.io/), we are developing the user's interface, where student's can input their research proposals and receive our output. We are still in the initial stages with this, but the script can be found in the [app.py](https://github.com/cbsobral/python/blob/master/app.py) file. You can check how this interface currently looks like accessing the file [st-app-screencast.mp4](https://github.com/cbsobral/python/blob/master/st-app-screencast.mp4).
 
 ## Next Steps 
 In the next weeks, we plan to test our model with a few research proposals, identify opportunities for enhancement of accuracy in topic matching and improve the code, as needed.
