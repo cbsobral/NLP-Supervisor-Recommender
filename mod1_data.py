@@ -7,6 +7,7 @@ from nltk.stem import PorterStemmer
 from multiprocessing import freeze_support
 
 
+
 # =============================================================================
 # Section 1 - Data and Model
 # =============================================================================
@@ -14,9 +15,7 @@ from multiprocessing import freeze_support
 ## LDA Data and Model
 # Import supervision plans
 
-#def get_data():
-#    path = ('c:\\Users\\carol\\Desktop\\Fall_2020\\Python\\streamlit\\data')
-#    return PlaintextCorpusReader(path, '.*txt') # import all files ending in 'txt'
+#pickle.dump(corpus_list, open("save.p", "wb"))
 
 
 nltk.download('stopwords')
