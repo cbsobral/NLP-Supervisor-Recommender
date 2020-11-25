@@ -9,6 +9,7 @@ from multiprocessing import freeze_support
 # =============================================================================
     
 def results_plot(model, ud_bow):
+    
     # Table with top 3 topics and score
     results = pd.DataFrame(model[ud_bow]) # Comparison with LDA
     results.columns = ['Topic', 'Score']
@@ -101,14 +102,42 @@ def words_vis (topic, topic_words, colors_fig, colors_wc):
 # # =============================================================================
 
 def supervisors():    
-    supervisors  = ['Helmut<br>Anheier', 'Joanna<br>Bryson', 'Basak<br>Cali', 'Luciana<br>Cingolani', 'Cathryn<br>Costello', 
-                'Mark<br>Dawson', 'Christian<br>Flachsland', 'Anita<br>Gohdes', 'Lukas<br>Graf', 'Mark<br>Hallerberg', 
-                'Gerhard<br>Hammerschmid', 'Anke<br>Hassel', 'Lion<br>Hirth', 'Thurid<br>Hustedt', 'Leonardo<br>Iacovone', 
-                'Markus<br>Jachtenfuchs', 'Slava<br>Jankin', 'Mark<br>Kayser', 'Michaela<br>Kreyenfeld', 'Johanna<br>Mair', 
-                'Sebastien<br>Mena', 'Alina<br>Mungiu-Pippidi', 'Simon<br>Munzert', 'Ronny<br>Patz', 'Christine<br>Reh', 
-                'Andrea<br>Roemmele', 'Mujaheed<br>Shaikh', 'Dennis<br>Snower', 'Daniela<br>Stockman', 'Christian<br>Traxler', 
-                'Kai<br>Wegrich']
+    supervisors  = [
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2778&studyProgramId=1">Helmut<br>Anheier</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2799&studyProgramId=1">Joanna<br>Bryson</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2748&studyProgramId=1">Basak<br>Cali</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2749&studyProgramId=1">Luciana<br>Cingolani</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2800&studyProgramId=1">Cathryn<br>Costello</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2762&studyProgramId=1">Mark<br>Dawson</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2751&studyProgramId=1">Christian<br>Flachsland</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2758&studyProgramId=1">Anita<br>Gohdes</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2753&studyProgramId=1">Lukas<br>Graf</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2754&studyProgramId=1">Mark<br>Hallerberg</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2755&studyProgramId=1">Gerhard<br>Hammerschmid</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2756&studyProgramId=1">Anke<br>Hassel</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2759&studyProgramId=1">Lion<br>Hirth</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2760&studyProgramId=1">Thurid<br>Hustedt</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2761&studyProgramId=1">Leonardo<br>Iacovone</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2762&studyProgramId=1">Markus<br>Jachtenfuchs</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2763&studyProgramId=1">Slava<br>Jankin</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2764&studyProgramId=1">Mark<br>Kayser</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2765&studyProgramId=1">Michaela<br>Kreyenfeld</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2766&studyProgramId=1">Johanna<br>Mair</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2767&studyProgramId=1">Sebastien<br>Mena</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2768&studyProgramId=1">Alina<br>Mungiu-Pippidi</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2769&studyProgramId=1">Simon<br>Munzert</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2770&studyProgramId=1">Ronny<br>Patz</a>',
+                    '<a href="hhttps://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2771&studyProgramId=1">Christine<br>Reh</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2772&studyProgramId=1">Andrea<br>Roemmele</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2773&studyProgramId=1">Mujaheed<br>Shaikh</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2774&studyProgramId=1">Dennis<br>Snower</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2775&studyProgramId=1">Daniela<br>Stockman</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2776&studyProgramId=1">Christian<br>Traxler</a>',
+                    '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2777&studyProgramId=1">Kai<br>Wegrich</a>'
+                    ]
     return supervisors
+
+
 
 ## Create table with supervisors, using results from comparison with corpus
 

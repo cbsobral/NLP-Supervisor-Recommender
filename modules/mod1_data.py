@@ -27,15 +27,17 @@ stoplist = stopwords.words('english') # Stopwords
 
 # Define additional stopwords in a string
 additional_stopwords = """http ask ha ox mcc christine task discussion chapter submit indicate io bot los angeles 
-                         semester auto author colomb affair ly bit client database evidence willing note 
-                         report william williams stanford www mair dawson ercas also hertie question professor 
-                         title school session topics project partner practice plan see supervise
-                         thesis issue student topic supervision university lab mia mpp org etc"""   
+                          semester auto author colomb affair ly bit client database evidence willing note 
+                          report william williams stanford www mair dawson ercas also hertie question professor 
+                          title school session topics project partner practice plan see supervise
+                          thesis issue student topic supervision university lab mia mpp org etc"""   
+
+#additional_stopwords = """bit ly mcc ox mair dawson colomb""" 
                          
 stoplist += additional_stopwords.split() # Join both lists
 
 # Convert token to lowercase and lemmatize
-def normalize_token(token):
+def lemma_token(token):
   return wnt.lemmatize(token.lower())
 
 # Convert token to lowercase and stem
@@ -72,7 +74,7 @@ def filter_token(token):
 def corpus_lemma(corpus_list):
     
     # Filter and lemmatize
-    documents=[[normalize_token(token) 
+    documents=[[lemma_token(token) 
             for token in corpus_list.words(fileids=[fileid])
             if filter_token(token)]
             for fileid in corpus_list.fileids()]           
@@ -84,11 +86,11 @@ def corpus_lemma(corpus_list):
 
     
     # Create dictionary and bow for documents
-    dictionary = gensim.corpora.Dictionary(corpus)
-    corpus_bow_1 = [dictionary.doc2bow(document) for document in corpus]
-    tfidf = models.TfidfModel(corpus_bow_1) 
-    corpus_bow = tfidf[corpus_bow_1]
-    return dictionary, corpus_bow
+    dict_lemma = gensim.corpora.Dictionary(corpus)
+    corpus_bow = [dict_lemma.doc2bow(document) for document in corpus]
+    tfidf = models.TfidfModel(corpus_bow) 
+    corpus_lemma = tfidf[corpus_bow]
+    return dict_lemma, corpus_lemma
 
 
 # Tokenize and apply filter and stem functions 
@@ -126,12 +128,12 @@ def ud_lemma (ud_text, dictionary):
     return ud_bow_lemma
     
 
-def ud_stem (ud_text, dictionary_tfidf):
+def ud_stem (ud_text, dictionary):
     ud_tokens = nltk.word_tokenize(ud_text) 
     ud_filter = [token for token in ud_tokens if token.isalpha() and len(token) > 1]
     ud_stem = ' '.join([ps.stem(token) for token in ud_filter]) 
     ud_tk_stem = nltk.word_tokenize(ud_stem) 
-    ud_bow_stem = dictionary_tfidf.doc2bow(ud_tk_stem)
+    ud_bow_stem = dictionary.doc2bow(ud_tk_stem)
     return ud_bow_stem
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ from multiprocessing import freeze_support
 
 corpus_list = get_data()
 
-dictionary, corpus_bow = corpus_lemma(corpus_list)
+dict_lemma, corpus_lemma = corpus_lemma(corpus_list)
 dict_stem, corpus_stem = corpus_stem(corpus_list)
 
 
@@ -21,16 +21,15 @@ dict_stem, corpus_stem = corpus_stem(corpus_list)
 # LDA
 # =============================================================================
 
-lda_model = gensim.models.LdaMulticore(corpus_bow, 
-                                id2word=dictionary,
-                                num_topics=5, # best results with 6 topics
-                                random_state=123, # seed for consistency
-                                #update_every=0,
-                                passes=2000, 
-                                alpha='symmetric', 
-                                chunksize=31, minimum_probability = 0.01)
+lda_model = gensim.models.LdaMulticore(corpus_lemma, 
+                                id2word = dict_lemma,
+                                num_topics = 6, # best results with 5 topics
+                                random_state = 123, # seed for consistency
+                                passes = 2000, 
+                                alpha = 'symmetric', 
+                                chunksize = 31, minimum_probability = 0.01)
 
-lda_model.save('lda_model')
+lda_model.save('lda_model2')
 
 # =============================================================================
 # Similarities
