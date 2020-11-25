@@ -34,7 +34,9 @@ st.sidebar.markdown("We hope this can facilitate your choice for supervisors! An
 # =============================================================================
 
 # Get Corpus
-corpus_list = pickle.load(open("corpus.p", "rb"))
+corpus_open = open("corpus.p", "rb")
+corpus_list = pickle.load(corpus_open)
+corpus_open.close()
 
 # Load LDA Model
 lda_model =  models.LdaModel.load('lda_model1')
