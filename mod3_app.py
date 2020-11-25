@@ -1,11 +1,11 @@
-from mod1_data import corpus_lemma, corpus_stem, ud_lemma, ud_stem  #get_data, 
+from mod1_data import ud_lemma, ud_stem 
 from mod2_vis import results_plot, get_topic_words, words_vis, get_topics_doc, supervisors, sim_matrix, recommend_df, super_vis
 import streamlit as st
-from gensim import models, similarities
+from gensim import models, similarities, corpora
 import plotly.express as px
 import pandas as pd
 from multiprocessing import freeze_support
-import pickle
+
 
 # App Header
 st.set_page_config(layout="centered", initial_sidebar_state="auto", page_title="SRT") # "auto", "expanded", "collapsed"
@@ -33,20 +33,21 @@ st.sidebar.markdown("We hope this can facilitate your choice for supervisors! An
 # LDA  and TF-IDF Data and Model
 # =============================================================================
 
-# Get Corpus
-corpus_open = open("corpus.p", "rb")
-corpus_list = pickle.load(corpus_open)
-corpus_open.close()
+# Load dictionaries and corpus
+
+# Lemmatized
+dict_lemma = corpora.Dictionary.load('dict_lemma')
+corpus_lemma = corpora.MmCorpus('corpus_lemma')
+
+# Stemmed
+dict_stem = corpora.Dictionary.load('dict_stem')
+
 
 # Load LDA Model
 lda_model =  models.LdaModel.load('lda_model1')
 
 # Load Similarities Matrix
 sim_model = similarities.MatrixSimilarity.load('sim_model')
-
-# Load dictionary and bow
-dict_lemma, corpus_lemma = corpus_lemma(corpus_list)
-dict_stem, corpus_stem= corpus_stem(corpus_list)
 
 
 
@@ -146,9 +147,10 @@ else:
 # =============================================================================
     
     # Create table with supervisor prob per topics
-    topics = [lda_model[corpus_lemma[i]] for i in range(len(corpus_list.fileids()))]
-    num_topics = 6
     supervisor_list = supervisors()
+    topics = [lda_model[corpus_lemma[i]] for i in range(len(supervisor_list))]
+    num_topics = 6
+    
     
     document_topic = \
     pd.concat([get_topics_doc(topics_document, num_topics=num_topics) for topics_document in topics]) \
