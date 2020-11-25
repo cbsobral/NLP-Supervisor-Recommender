@@ -19,6 +19,9 @@ def get_data():
     return PlaintextCorpusReader(path, '.*txt') # import all files ending in 'txt'
 
 
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('punkt')
 
 ps = PorterStemmer()
 wnt = nltk.WordNetLemmatizer() # Lemmatizer
