@@ -1,4 +1,4 @@
-from mod1_data import get_data, corpus_lemma, corpus_stem, ud_lemma, ud_stem  
+from mod1_data import corpus_lemma, corpus_stem, ud_lemma, ud_stem  #get_data, 
 from mod2_vis import results_plot, get_topic_words, words_vis, get_topics_doc, supervisors, sim_matrix, recommend_df, super_vis
 import streamlit as st
 from gensim import models, similarities
