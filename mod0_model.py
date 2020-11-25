@@ -1,8 +1,10 @@
 # Import packages 
 import gensim
-from mod1_data import get_data, corpus_lemma, corpus_stem
+from mod1_data import corpus_lemma, corpus_stem  #get_data,
 from gensim import similarities
 from multiprocessing import freeze_support
+import pickle
+
 
 # =============================================================================
 # Load Data
@@ -10,7 +12,7 @@ from multiprocessing import freeze_support
 
 # Get Corpus
 
-corpus_list = get_data()
+corpus_list = pickle.load(open("corpus.p", "rb"))
 
 dict_lemma, corpus_lemma = corpus_lemma(corpus_list)
 dict_stem, corpus_stem = corpus_stem(corpus_list)
