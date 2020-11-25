@@ -14,9 +14,9 @@ from multiprocessing import freeze_support
 ## LDA Data and Model
 # Import supervision plans
 
-def get_data():
-    path = ('c:\\Users\\carol\\Desktop\\Fall_2020\\Python\\streamlit\\data')
-    return PlaintextCorpusReader(path, '.*txt') # import all files ending in 'txt'
+#def get_data():
+#    path = ('c:\\Users\\carol\\Desktop\\Fall_2020\\Python\\streamlit\\data')
+#    return PlaintextCorpusReader(path, '.*txt') # import all files ending in 'txt'
 
 
 nltk.download('stopwords')
