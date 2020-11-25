@@ -5,7 +5,7 @@ from gensim import models, similarities
 import plotly.express as px
 import pandas as pd
 from multiprocessing import freeze_support
-
+import pickle
 
 # App Header
 st.set_page_config(layout="centered", initial_sidebar_state="auto", page_title="SRT") # "auto", "expanded", "collapsed"
@@ -34,7 +34,7 @@ st.sidebar.markdown("We hope this can facilitate your choice for supervisors! An
 # =============================================================================
 
 # Get Corpus
-corpus_list = get_data()
+corpus_list = pickle.load(open("corpus.p", "rb"))
 
 # Load LDA Model
 lda_model =  models.LdaModel.load('lda_model1')
