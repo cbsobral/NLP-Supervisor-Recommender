@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 from multiprocessing import freeze_support
 
 # =============================================================================
-# Section 3 - Top 3 Topics
+# Top 3 Topics
 # =============================================================================
     
 def results_plot(model, ud_bow):
@@ -46,9 +46,10 @@ def results_plot(model, ud_bow):
     
     
 # =============================================================================
-# Section 4 - Words per Topic
+# Words per Top Topics
 # =============================================================================
-    
+
+# Table with top words per topic    
 def get_topic_words (model, dictionary):
     # Create table with top n words per topic
     n_words = 20
@@ -63,8 +64,7 @@ def get_topic_words (model, dictionary):
      
     return topic_words
     
-
-
+# Wordcloud and plot for top 3 topics
 def words_vis (topic, topic_words, colors_fig, colors_wc):
     
     # Table with 10 results
@@ -99,9 +99,10 @@ def words_vis (topic, topic_words, colors_fig, colors_wc):
     
    
 # # =============================================================================
-# # Section 5 - Recommendations
+# # Recommendations
 # # =============================================================================
 
+# Create index for sim_pd
 def supervisors():    
     supervisors  = [
                     '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2778&studyProgramId=1">Helmut<br>Anheier</a>',
@@ -139,9 +140,7 @@ def supervisors():
     return supervisors
 
 
-
-## Create table with supervisors, using results from comparison with corpus
-
+# Create table with supervisors, using results from comparison with corpus
 def get_topics_doc(topics_document, num_topics):
     res = pd.DataFrame(columns=range(num_topics))
     for topic_weight in topics_document:
@@ -155,7 +154,6 @@ def get_topics_doc(topics_document, num_topics):
 # =============================================================================
 
 # Similarity Matrix
-
 def sim_matrix(sim_model, ud_bow, supervisor_list):
     sim = sim_model[ud_bow]
     sim_pd = pd.DataFrame(sim)
@@ -164,7 +162,7 @@ def sim_matrix(sim_model, ud_bow, supervisor_list):
     
     return sim_pd
 
-
+# Table with recommendations
 def recommend_df (document_topic, topic, sim_pd, supervisor_list):
     # Supervisor recommendations per topic
     r_df = pd.DataFrame(document_topic[topic])
@@ -182,9 +180,10 @@ def recommend_df (document_topic, topic, sim_pd, supervisor_list):
 
 
 # =============================================================================
-# Graph results
+# Supervisor Recommendation Plot
 # =============================================================================
 
+# Plot with supervisor recommendations per top 3 topics
 def super_vis(first_topic, second_topic, third_topic, recom_1, recom_2, recom_3):
     fig = go.Figure()
     

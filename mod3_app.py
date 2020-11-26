@@ -1,4 +1,4 @@
-from mod1_data import ud_lemma, ud_stem 
+from mod0_data import ud_lemma, ud_stem 
 from mod2_vis import results_plot, get_topic_words, words_vis, get_topics_doc, supervisors, sim_matrix, recommend_df, super_vis
 import streamlit as st
 from gensim import models, similarities, corpora
@@ -7,10 +7,15 @@ import pandas as pd
 from multiprocessing import freeze_support
 
 
-# App Header
+# =============================================================================
+# Header and Options
+# =============================================================================
+
 st.set_page_config(layout="centered", initial_sidebar_state="auto", page_title="SRT") # "auto", "expanded", "collapsed"
 st.set_option('deprecation.showPyplotGlobalUse', False)
+
 st.title("Supervisor Recommendation")
+
 
 # =============================================================================
 # Side Bar
@@ -34,7 +39,6 @@ st.sidebar.markdown("We hope this can facilitate your choice for supervisors! An
 # Load Data and Models
 # =============================================================================
 
-
 # Load lemmatized corpus and dictionary
 dict_lemma = corpora.Dictionary.load('dict_lemma')
 corpus_lemma = corpora.MmCorpus('corpus_lemma')
@@ -47,7 +51,6 @@ lda_model =  models.LdaModel.load('lda_model1')
 
 # Load Similarities Matrix
 sim_model = similarities.MatrixSimilarity.load('sim_model')
-
 
 
 # =============================================================================
@@ -66,6 +69,7 @@ if not run_app:
     st.stop()
 else:
     
+    
 # =============================================================================
 # Unseen Document Pre-processing    
 # =============================================================================
@@ -79,6 +83,8 @@ else:
 # =============================================================================
     
     results_fig, first_topic, second_topic, third_topic = results_plot(lda_model, ud_bow_lemma) 
+    
+    
     st.header("Matching Topics")
     st.write("These are the topics more closely related to your proposal:")
     st.plotly_chart(results_fig)
@@ -88,7 +94,7 @@ else:
 # Words per topic - Plot and WordCloud
 # =============================================================================
     
-    # Words per topic table
+    # Get words per topic table
     topic_words = get_topic_words(model = lda_model, dictionary = dict_lemma)
    
     # Define colors for Plot and WordCloud = first_topic
@@ -117,9 +123,11 @@ else:
                                       colors_fig = colors_f3, colors_wc = colors_w3)
     
     
+    # Plot on streamlit
     st.header("Words per Topic")
     st.write("Have a look at the words that stand out in each of these topics. Click on (+) to see what we are talking about.")
     
+    # First topic
     expander1 = st.beta_expander('Topic '+str(first_topic))
     with expander1:
         col1, col2 = st.beta_columns(2)
@@ -150,20 +158,21 @@ else:
     topics = [lda_model[corpus_lemma[i]] for i in range(len(supervisor_list))]
     num_topics = 6
     
-    
     document_topic = \
     pd.concat([get_topics_doc(topics_document, num_topics=num_topics) for topics_document in topics]) \
     .reset_index(drop=True).fillna(0)
     
     document_topic.index = supervisor_list # names to index column
-        
+     
+    
 # =============================================================================
-# Sim Matrix
+# Recommendations
 # =============================================================================
     
+# Create similarity df
     sim_pd = sim_matrix(sim_model, ud_bow_stem, supervisor_list)
     
-    # First topic table
+    # Tables with recommendation per topic
     recom_1 = recommend_df(document_topic, first_topic, sim_pd, supervisor_list)
     recom_2 = recommend_df(document_topic, second_topic, sim_pd, supervisor_list)
     recom_3 = recommend_df(document_topic, third_topic, sim_pd, supervisor_list)
@@ -171,10 +180,7 @@ else:
     # Visualization
     fig_s = super_vis(first_topic, second_topic, third_topic, recom_1, recom_2, recom_3)
     
-    
-# =============================================================================
-#  Recommendations
-# =============================================================================
+   
     st.header("Recommendations")
     st.write("Which of the previous topics do you think is a better match for you? Select a topic from the dropdown menu to see our supervisor recommendations for each topic.")
     st.plotly_chart(fig_s)
