@@ -1,8 +1,7 @@
-nltk==3.5
 matplotlib==3.2.2
-gensim==3.8.3
-streamlit==0.71.0
 wordcloud==1.8.1
 pandas==1.0.5
-numpy==1.18.5
+gensim==3.8.3
 plotly==4.12.0
+streamlit==0.71.0
+nltk==3.5

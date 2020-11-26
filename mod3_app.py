@@ -29,19 +29,18 @@ st.sidebar.markdown("That's it from our side! But you should go over the supervi
 st.sidebar.markdown("Fear not, for we've incorporated a hyperlink to make this easier too! Just click on the professor and you will be redirected to the appropriate page.")
 st.sidebar.markdown("We hope this can facilitate your choice for supervisors! And good luck with your thesis!")
 
+
 # =============================================================================
-# LDA  and TF-IDF Data and Model
+# Load Data and Models
 # =============================================================================
 
-# Load dictionaries and corpus
 
-# Lemmatized
+# Load lemmatized corpus and dictionary
 dict_lemma = corpora.Dictionary.load('dict_lemma')
 corpus_lemma = corpora.MmCorpus('corpus_lemma')
 
-# Stemmed
+# Load stemmed corpus and dictionary
 dict_stem = corpora.Dictionary.load('dict_stem')
-
 
 # Load LDA Model
 lda_model =  models.LdaModel.load('lda_model1')

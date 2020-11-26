@@ -4,6 +4,7 @@ import plotly.express as px
 from wordcloud import WordCloud
 from matplotlib import pyplot as plt
 from multiprocessing import freeze_support
+
 # =============================================================================
 # Section 3 - Top 3 Topics
 # =============================================================================
