@@ -11,9 +11,11 @@ from multiprocessing import freeze_support
 # Header and Options
 # =============================================================================
 
+# Options
 st.set_page_config(layout="centered", initial_sidebar_state="auto", page_title="SRT") # "auto", "expanded", "collapsed"
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
+# Header
 st.title("Supervisor Recommendation")
 
 
