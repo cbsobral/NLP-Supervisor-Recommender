@@ -1,5 +1,6 @@
 # **Supervisor Recommendation Tool - Midterm Report**
 ## **The Project**
+***
 In this script, we use the "Natural Language Toolkit" ([nltk](https://www.nltk.org/)) and  [Gensim](https://radimrehurek.com/gensim/) packages to employ topic modeling techniques for classifying the content of the 31 Master Thesis Colloquia supervision plans – downloaded from the Hertie School’s Mystudies database, and converted into .txt files – into different topics.
 
 These supervision plans compose the “corpus” of the work, from which we derive a model that generates per-document topic distributions.
