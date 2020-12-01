@@ -56,7 +56,7 @@ def lemma_token(token):
 # Convert token to lowercase and stem
 def stem_token(token):
     """
-    Converts token to lowecase and stem .
+    Converts token to lowecase and stem.
 
     Parameters
     ----------
@@ -104,7 +104,11 @@ def corpus_lemma(corpus_list):
     Returns
     -------
     dict_lemma : dict of (int, str)
-        A mapping between tokens and their integer ids.
+        Dictionary encapsulates the mapping between normalized words and their 
+        integer ids. 
+        The main function is doc2bow, which converts a collection of words to 
+        its bag-of-words representation: a list of (word_id, word_frequency) 
+        2-tuples.
     corpus_lemma : list of (token_id, token_count) tuples  
         List of tf-idf weighted counts of tokens in the corpus, after 
         lemmatized, removal of non alphabetic characters, stopwords and words
@@ -145,7 +149,11 @@ def corpus_stem (corpus_list):
     Returns
     -------
     dict_stem : dict of (int, str)
-        A mapping between tokens and their integer ids.
+        Dictionary encapsulates the mapping between normalized words and their 
+        integer ids. 
+        The main function is doc2bow, which converts a collection of words to 
+        its bag-of-words representation: a list of (word_id, word_frequency) 
+        2-tuples.
     corpus_stem : list of (int, int)  
         List of (token_id, token_count) tuples, tf-idf weighted of tokens 
         stemmed, with alphabetic characters only, composed of more than 1 
@@ -179,15 +187,19 @@ def corpus_stem (corpus_list):
 def ud_lemma (ud_text, dict_lemma):
     """
     Preprocesses users input through lemmatization, lowercase, removal of 
-    stopwords and tokens with less than 2 characters and creates a bag of words.
+    stopwords and tokens with less than 2 characters and creates a bag of 
+    words.
 
     Parameters
     ----------
-    ud_text : list of str
-        List of tokens produced by the user.
+    ud_text : str
+        Tokens produced by the user.
     dict_lemma : dict of (int, str)
-        A mapping between tokens in the corpus and their integer ids.
-
+        Dictionary encapsulates the mapping between normalized words and their 
+        integer ids. 
+        The main function is doc2bow, which converts a collection of words to 
+        its bag-of-words representation: a list of (word_id, word_frequency) 
+        2-tuples.
     Returns
     -------
     ud_bow_lemma : list of (int, int) tuples
@@ -215,13 +227,17 @@ def ud_stem (ud_text, dict_stem):
     ud_text : list of str
         List of tokens produced by the user.
     dict_stem : dict of (int, str)
-        A mapping between tokens in the corpus and their integer ids.
-
+        Dictionary encapsulates the mapping between normalized words and their 
+        integer ids. 
+        The main function is doc2bow, which converts a collection of words to 
+        its bag-of-words representation: a list of (word_id, word_frequency) 
+        2-tuples.
     Returns
     -------
     ud_bow_stem : list of (int, int) tuples
         List of (token_id, token_count) tuples of user input, after stem, 
-        removal of non alphabetic characters, stopwords, and of words of less than 2 characters.
+        removal of non alphabetic characters, stopwords, and of words of less 
+        than 2 characters.
         
      """
      ud_tokens = nltk.word_tokenize(ud_text) 

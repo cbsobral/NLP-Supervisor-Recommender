@@ -190,7 +190,7 @@ else:
     st.header("Recommendations")
     st.write("Which of the previous topics do you think is a better match for you? Select a topic from the dropdown menu to see our supervisor recommendations for each topic.")
     st.plotly_chart(fig_s)
+          
      
-        
 if __name__ == "__main__":
     freeze_support()

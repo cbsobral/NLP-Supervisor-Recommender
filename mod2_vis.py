@@ -11,6 +11,32 @@ from multiprocessing import freeze_support
 
 # Compare user's input to LDA model    
 def results_plot(model, ud_bow):
+    """
+    Generates a bar graph with the three topics that best match the user 
+    input, ordered by higher to lower match.
+
+    Parameters
+    ----------
+    model : gensim.models.ldamodel.LdaModel
+        LDA Model containing the topics extracted from the corpus of 
+        supervision plans.
+    ud_bow :  list of (int, int) tuples
+        List of (token_id, token_count) tuples of user input, after text
+        preprocessing.
+
+    Returns
+    -------
+    fig : graph_objs._figure.Figure
+        Bar chart with matching scores of each of the three best matched 
+        topics.
+    first_topic : int
+        Topic number of the best matched topic.
+    second_topic : int
+        Topic number of the second best matched topic.
+    third_topic : int
+        Topic number of the third best matched topic.
+
+    """
     # Table with top 3 topics and score
     results = pd.DataFrame(model[ud_bow]) # Comparison with LDA
     results.columns = ['Topic', 'Score']
@@ -51,6 +77,28 @@ def results_plot(model, ud_bow):
 
 # Table with top words per topic    
 def get_topic_words (model, dictionary):
+    """
+    Generates a table with the 20 most relevant words in each topic.
+
+    Parameters
+    ----------
+    model : gensim.models.ldamodel.LdaModel
+        LDA Model containing the topics extracted from the corpus of 
+        supervision plans.
+    dictionary : dict of (int, str)
+        Dictionary encapsulates the mapping between normalized words and their 
+        integer ids. 
+        The main function is doc2bow, which converts a collection of words to 
+        its bag-of-words representation: a list of (word_id, word_frequency) 
+        2-tuples.
+
+    Returns
+    -------
+    topic_words : DataFrame
+        DataFrame with the 20 most relevante words, displaying word_id, score, 
+        word and associated topic.
+
+    """
     # Create table with top n words per topic
     n_words = 20
     topic_words = pd.DataFrame({})
@@ -67,6 +115,30 @@ def get_topic_words (model, dictionary):
 
 # WordCloud and plot for top 3 topics
 def words_vis (topic, topic_words, colors_fig, colors_wc):
+    """
+    Generates a barchart and a wordcloud displaying the 20 most relevant words
+    in the three selected topics.
+
+    Parameters
+    ----------
+    topic : int
+        Number of associated topic.
+    topic_words : DataFrame
+        DataFrame with the 20 most relevante words, displaying word_id, score, 
+        word and associated topic.
+    colors_fig : str
+        Color of the bar chart for words per topic. 
+    colors_wc : str
+        Color of the wordcloud for words per topic.
+
+    Returns
+    -------
+    fig : graph_objs._figure.Figure
+        Bar chart graph of 20 most relevant words per topic.
+    wd : wordcloud.Wordcloud
+        Wordcloud of 20 most relevant words per topic.
+
+    """
     # Table with 10 results
     t_words = topic_words[(topic_words['topic'] == topic)].head(10)
     t_words['word'] = t_words['word'].str.capitalize()
@@ -103,6 +175,16 @@ def words_vis (topic, topic_words, colors_fig, colors_wc):
 
 # Create index for sim_pd
 def supervisors():    
+    """
+    Identifies supervisor by name and associates a hyperlink to the respective 
+    Supervision plan.
+
+    Returns
+    -------
+    supervisors : str
+        Name of supervisor and hyperlink to supervision plan.
+
+    """
     supervisors  = [
                     '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2778&studyProgramId=1">Helmut<br>Anheier</a>',
                     '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2799&studyProgramId=1">Joanna<br>Bryson</a>',
@@ -142,6 +224,23 @@ def supervisors():
 
 # Create table with supervisors using results from comparison with corpus
 def get_topics_doc(topics_document, num_topics):
+    """
+    Generates a DataFrame with supervisors, topics and their score of 
+    association.
+
+    Parameters
+    ----------
+    topics_document : TYPE
+        DESCRIPTION.
+    num_topics : int
+        Topic Number.
+
+    Returns
+    -------
+    res : TYPE
+        DESCRIPTION.
+
+    """
     res = pd.DataFrame(columns=range(num_topics))
     for topic_weight in topics_document:
         res.loc[0, topic_weight[0]] = topic_weight[1]
@@ -155,6 +254,26 @@ def get_topics_doc(topics_document, num_topics):
 
 # Similarity Matrix
 def sim_matrix(sim_model, ud_bow, supervisor_list):
+    """
+    Applies the similarity matrix to user input to find more suitable 
+    supervisors within a given topic.
+
+    Parameters
+    ----------
+    sim_model : similarities.docsim.SparseMatrixSimilarity
+        Similarity matrix identifiyng proximity between different supervision
+        plans
+    ud_bow : list of str
+        List of words input by user, already preprocessed.
+    supervisor_list : list of str
+        List of supervisor plans identified by respective professors.
+
+    Returns
+    -------
+    sim_pd : int
+        Similarity score of each supervision plan to user input.
+
+    """
     sim = sim_model[ud_bow]
     sim_pd = pd.DataFrame(sim)
     sim_pd.columns = ['Similarity']
@@ -165,6 +284,27 @@ def sim_matrix(sim_model, ud_bow, supervisor_list):
 
 # Table with final recommendations
 def recommend_df (document_topic, topic, sim_pd, supervisor_list):
+    """
+    Generates a list of recommendations per selected topic.
+
+    Parameters
+    ----------
+    document_topic : list of int
+        List of three topics best matched to user input.
+    topic : int
+        Numper of Topic
+    sim_pd : int
+        Similarity score of each supervision plan to user input.
+    supervisor_list : list of str
+        List of Supervisors associated with a given topic
+
+    Returns
+    -------
+    c_df : DataFrame
+         DataFrame of associating supervisors per topic and similarity scores 
+        to user input.
+
+    """
     # Supervisor recommendations per topic
     r_df = pd.DataFrame(document_topic[topic])
     r_df.columns = ['topic_i']
@@ -187,6 +327,32 @@ def recommend_df (document_topic, topic, sim_pd, supervisor_list):
 
 # Plot with supervisor recommendations per top 3 topics
 def super_vis(first_topic, second_topic, third_topic, recom_1, recom_2, recom_3):
+    """
+    Generates bar chart with supervisors and their score of similarity to users
+    input.
+
+    Parameters
+    ----------
+    first_topic : int
+        Number of the topic that best matched user input.
+    second_topic : int
+        Number of the topic of second best match to user input.
+    third_topic : int
+        Number of the topic of third best match to user input.
+    recom_1 : list
+        List of supervisors associated with first_topic. 
+    recom_2 : list
+        List of supervisors associated with second_topic.
+    recom_3 : list
+        List of supervisors associated with third_topic.
+
+    Returns
+    -------
+    fig : graph_objs._figure.Figure
+        Bar chart displaying score of association of each supervisor to user 
+        input.
+
+    """
     fig = go.Figure()
     
     # Add traces - One per topic

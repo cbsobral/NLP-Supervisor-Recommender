@@ -42,9 +42,8 @@ lda_model = gensim.models.LdaModel(corpus_lemma,
                                     alpha = 'symmetric', 
                                     chunksize = 31)
 
-# Save 
+# Save LDA model
 lda_model.save('lda_model')
-
 
 # =============================================================================
 # Similarity Matrix
@@ -53,7 +52,7 @@ lda_model.save('lda_model')
 # Create similarity matrix with stemmed documents
 sim_model = similarities.SparseMatrixSimilarity(corpus_stem, len(dict_stem.token2id))
 
-# Save
+# Save similarity matrix
 sim_model.save('sim_model', separately = None)
 
 
