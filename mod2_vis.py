@@ -8,7 +8,8 @@ from multiprocessing import freeze_support
 # =============================================================================
 # Top 3 Topics
 # =============================================================================
-    
+
+# Compare user's input to LDA model    
 def results_plot(model, ud_bow):
     # Table with top 3 topics and score
     results = pd.DataFrame(model[ud_bow]) # Comparison with LDA
@@ -17,7 +18,7 @@ def results_plot(model, ud_bow):
     results_top = (results.nlargest(3,['Score']))  # Top 3 topics
     results_top['Score'] = results_top['Score']*100
     
-    # Get topic numbers
+    # Get top topic numbers
     first_topic = int(results_top.iloc[0]['Topic'])
     second_topic = int(results_top.iloc[1]['Topic'])
     third_topic = int(results_top.iloc[2]['Topic'])
@@ -64,7 +65,7 @@ def get_topic_words (model, dictionary):
     return topic_words
     
 
-# Wordcloud and plot for top 3 topics
+# WordCloud and plot for top 3 topics
 def words_vis (topic, topic_words, colors_fig, colors_wc):
     # Table with 10 results
     t_words = topic_words[(topic_words['topic'] == topic)].head(10)
@@ -88,7 +89,6 @@ def words_vis (topic, topic_words, colors_fig, colors_wc):
     text3 = ' '.join(text2)
     wd = WordCloud(max_font_size=40, max_words=100, background_color="white",
                           color_func=lambda *args, **kwargs:(colors_wc)).generate(text3)
-    
     plt.figure(figsize=(300, 500))
     plt.imshow(wd, interpolation='bilinear')
     plt.axis("off")
@@ -140,7 +140,7 @@ def supervisors():
     return supervisors
 
 
-# Create table with supervisors, using results from comparison with corpus
+# Create table with supervisors using results from comparison with corpus
 def get_topics_doc(topics_document, num_topics):
     res = pd.DataFrame(columns=range(num_topics))
     for topic_weight in topics_document:
@@ -163,7 +163,7 @@ def sim_matrix(sim_model, ud_bow, supervisor_list):
     return sim_pd
 
 
-# Table with recommendations
+# Table with final recommendations
 def recommend_df (document_topic, topic, sim_pd, supervisor_list):
     # Supervisor recommendations per topic
     r_df = pd.DataFrame(document_topic[topic])

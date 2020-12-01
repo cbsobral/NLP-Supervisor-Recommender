@@ -36,7 +36,7 @@ corpora.MmCorpus.serialize('corpus_stem', corpus_stem)
 # Generate LDA model with lemmatized documents
 lda_model = gensim.models.LdaModel(corpus_lemma, 
                                     id2word = dict_lemma,
-                                    num_topics = 6, # best results with 6 topics
+                                    num_topics = 6, 
                                     random_state = 123, # seed for consistency
                                     passes = 2000, 
                                     alpha = 'symmetric', 
