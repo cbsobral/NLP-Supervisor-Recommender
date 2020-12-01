@@ -37,7 +37,7 @@ def results_plot(model, ud_bow):
     fig.update_traces(texttemplate='%{text:.1f}%', textposition='outside', cliponaxis=False)
   
        
-    # Updata axis
+    # Update axis
     fig.update_yaxes(ticks="outside", tickcolor='white', ticklen=8)
     fig.update_xaxes(matches=None, ticks="outside",)
     
