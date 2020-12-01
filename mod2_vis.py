@@ -10,7 +10,6 @@ from multiprocessing import freeze_support
 # =============================================================================
     
 def results_plot(model, ud_bow):
-    
     # Table with top 3 topics and score
     results = pd.DataFrame(model[ud_bow]) # Comparison with LDA
     results.columns = ['Topic', 'Score']
@@ -64,9 +63,9 @@ def get_topic_words (model, dictionary):
      
     return topic_words
     
+
 # Wordcloud and plot for top 3 topics
 def words_vis (topic, topic_words, colors_fig, colors_wc):
-    
     # Table with 10 results
     t_words = topic_words[(topic_words['topic'] == topic)].head(10)
     t_words['word'] = t_words['word'].str.capitalize()
@@ -137,6 +136,7 @@ def supervisors():
                     '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2776&studyProgramId=1">Christian<br>Traxler</a>',
                     '<a href="https://mystudies.hertie-school.org/en/course-directory.php?p_id=350&action=show&courseId=2777&studyProgramId=1">Kai<br>Wegrich</a>'
                     ]
+    
     return supervisors
 
 
@@ -162,6 +162,7 @@ def sim_matrix(sim_model, ud_bow, supervisor_list):
     
     return sim_pd
 
+
 # Table with recommendations
 def recommend_df (document_topic, topic, sim_pd, supervisor_list):
     # Supervisor recommendations per topic
@@ -176,6 +177,7 @@ def recommend_df (document_topic, topic, sim_pd, supervisor_list):
     c_df = c_df[c_df.Similarity > 0].head(5)
     c_df.sort_values(['Similarity'], ascending=True, inplace=True)
     c_df['Similarity'] = c_df['Similarity']*100 
+    
     return c_df
 
 

@@ -43,7 +43,7 @@ lda_model = gensim.models.LdaModel(corpus_lemma,
                                     chunksize = 31)
 
 # Save 
-lda_model.save('lda_model1')
+lda_model.save('lda_model')
 
 
 # =============================================================================

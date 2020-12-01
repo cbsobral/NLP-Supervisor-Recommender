@@ -11,7 +11,7 @@ from multiprocessing import freeze_support
 # Header and Options
 # =============================================================================
 
-# Options
+# Page setup
 st.set_page_config(layout="centered", initial_sidebar_state="auto", page_title="SRT") # "auto", "expanded", "collapsed"
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -26,7 +26,7 @@ st.title("Supervisor Recommendation")
 st.sidebar.subheader("What is this?")
 st.sidebar.markdown("This is an app designed to help you match your research proposal with possible thesis supervisors.")
 st.sidebar.subheader("What should I do?")
-st.sidebar.markdown("1. Copy and paste your research proposal in the box. You can also just type your research interests. \n2. Check out which topics in our model best relate to your idea. \n3. Select one of the topics and see which professors match your interests.")
+st.sidebar.markdown("1. Copy and paste your research proposal in the box. You can also just type your research interests. \n2. Check out which of the topics in our model best relate to your idea. \n3. Select one of the topics and see which professors match your interests.")
 st.sidebar.subheader("Is this witchcraft?")
 st.sidebar.markdown("Err... no. We used Python to employ a Latent Dirichlet Allocation (LDA) topic model to unveil the underlying topics from the collection of supervision plans available at [MyStudies](https://mystudies.hertie-school.org/en/). ")
 st.sidebar.markdown("Based on the model, we then checked which topics from the supervision plans were best suited to represent your interests. ")
@@ -49,7 +49,7 @@ corpus_lemma = corpora.MmCorpus('corpus_lemma')
 dict_stem = corpora.Dictionary.load('dict_stem')
 
 # Load LDA Model
-lda_model =  models.LdaModel.load('lda_model1')
+lda_model =  models.LdaModel.load('lda_model')
 
 # Load Similarities Matrix
 sim_model = similarities.MatrixSimilarity.load('sim_model')
@@ -75,9 +75,13 @@ else:
 # =============================================================================
 # Unseen Document Pre-processing    
 # =============================================================================
-
+    
+    # Filter and lemmatize user's input
     ud_bow_lemma = ud_lemma(ud_text, dict_lemma)
+    
+    # Filter and stem user's input
     ud_bow_stem = ud_stem(ud_text, dict_stem)
+    
  
     
 # =============================================================================
@@ -125,7 +129,7 @@ else:
                                       colors_fig = colors_f3, colors_wc = colors_w3)
     
     
-    # Plot on streamlit
+    # Plot on Streamlit
     st.header("Words per Topic")
     st.write("Have a look at the words that stand out in each of these topics. Click on (+) to see what we are talking about.")
     
@@ -164,14 +168,14 @@ else:
     pd.concat([get_topics_doc(topics_document, num_topics=num_topics) for topics_document in topics]) \
     .reset_index(drop=True).fillna(0)
     
-    document_topic.index = supervisor_list # names to index column
+    document_topic.index = supervisor_list # paste names to index column
      
     
 # =============================================================================
 # Recommendations
 # =============================================================================
     
-# Create similarity df
+    # Create similarity df
     sim_pd = sim_matrix(sim_model, ud_bow_stem, supervisor_list)
     
     # Tables with recommendation per topic

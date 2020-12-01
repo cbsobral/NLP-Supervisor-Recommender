@@ -38,7 +38,7 @@ stoplist += additional_stopwords.split() # Join both lists
 # Convert token to lowercase and lemmatize
 def lemma_token(token):
     """
-    converts token to lowecase and lemmatized 
+    converts token to lowecase and lemmatized
 
     Parameters
     ----------
@@ -49,9 +49,9 @@ def lemma_token(token):
     -------
     token with lowercase characters and lemmatized root
 
-
     """
     return wnt.lemmatize(token.lower())
+
 
 # Convert token to lowercase and stem
 def stem_token(token):
@@ -70,6 +70,7 @@ def stem_token(token):
     """
     return ps.stem(token.lower())
 
+
 # Evaluate whether or not to retain `token`
 def filter_token(token):
     """
@@ -86,7 +87,9 @@ def filter_token(token):
 
     """
     token = token.lower()
+    
     return token.isalpha()
+
 
 # Lemmatize
 def corpus_lemma(corpus_list):
@@ -125,7 +128,9 @@ def corpus_lemma(corpus_list):
     corpus_bow = [dict_lemma.doc2bow(document) for document in corpus]
     tfidf = models.TfidfModel(corpus_bow) 
     corpus_lemma = tfidf[corpus_bow]
+    
     return dict_lemma, corpus_lemma
+
 
 # Stem 
 def corpus_stem (corpus_list):
@@ -148,22 +153,22 @@ def corpus_stem (corpus_list):
 
     """
     # Filter and stem
-    documents=[[stem_token(token) 
+     documents=[[stem_token(token) 
             for token in corpus_list.words(fileids=[fileid])
             if filter_token(token)]
             for fileid in corpus_list.fileids()]           
 
-    corpus = [[token for token in doc 
+     corpus = [[token for token in doc 
             if len(token) > 1
             and token not in stoplist]
             for doc in documents]
    
-    dict_stem = gensim.corpora.Dictionary(corpus)
-    corpus_bow = [dict_stem.doc2bow(document) for document in corpus]
-    tfidf = models.TfidfModel(corpus_bow) 
-    corpus_stem = tfidf[corpus_bow]
+     dict_stem = gensim.corpora.Dictionary(corpus)
+     corpus_bow = [dict_stem.doc2bow(document) for document in corpus]
+     tfidf = models.TfidfModel(corpus_bow) 
+     corpus_stem = tfidf[corpus_bow]
 
-    return dict_stem, corpus_stem
+     return dict_stem, corpus_stem
 
 
 # =============================================================================
@@ -193,9 +198,10 @@ def ud_lemma (ud_text, dict_lemma):
     """
     ud_tokens = nltk.word_tokenize(ud_text)
     ud_filter = [token for token in ud_tokens if token not in stoplist and token.isalpha() and len(token) > 1]
-    ud_lemma = ' '.join([wnt.lemmatize(token) for token in ud_filter]) # ud can be either `ud_text` or `ud_path`
+    ud_lemma = ' '.join([wnt.lemmatize(token) for token in ud_filter]) 
     ud_tk_lemma = nltk.word_tokenize(ud_lemma) 
     ud_bow_lemma = dict_lemma.doc2bow(ud_tk_lemma)
+    
     return ud_bow_lemma
     
 # Stem
@@ -215,17 +221,17 @@ def ud_stem (ud_text, dict_stem):
     -------
     ud_bow_stem : list of (int, int) tuples
         list of (token_id, token_count) tuples of user input, after 
-        stem, removal of non alphabetic characters and of words
+        stem, removal of non alphabetic characters, stopwords, and of words
         of less than 2 characters.
         
      """
-
-    ud_tokens = nltk.word_tokenize(ud_text) 
-    ud_filter = [token for token in ud_tokens if token.isalpha() and len(token) > 1]
-    ud_stem = ' '.join([ps.stem(token) for token in ud_filter]) 
-    ud_tk_stem = nltk.word_tokenize(ud_stem) 
-    ud_bow_stem = dict_stem.doc2bow(ud_tk_stem)
-    return ud_bow_stem
+     ud_tokens = nltk.word_tokenize(ud_text) 
+     ud_filter = [token for token in ud_tokens if token not in stoplist and token.isalpha() and len(token) > 1]
+     ud_stem = ' '.join([ps.stem(token) for token in ud_filter]) 
+     ud_tk_stem = nltk.word_tokenize(ud_stem) 
+     ud_bow_stem = dict_stem.doc2bow(ud_tk_stem)
+     
+     return ud_bow_stem
 
 
 if __name__ == "__main__":
