@@ -10,7 +10,7 @@ from multiprocessing import freeze_support
 # Pre-processing Tools
 # =============================================================================
 
-# Stopwords and lemmatizer
+# Download stopwords and lemmatizer
 nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('punkt')
@@ -38,16 +38,16 @@ stoplist += additional_stopwords.split() # join both lists
 # Convert token to lowercase and lemmatize
 def lemma_token(token):
     """
-    Converts token to lowecase and lemmatizes
+    Converts token to lowecase and lemmatizes.
 
     Parameters
     ----------
-    token : str 
-    A token (usually a word) in the corpus
+    token: str 
+    A token (usually a word) in the corpus.
 
     Returns
     -------
-    token with lowercase characters and lemmatized root
+    Token with lowercase characters and lemmatized root.
 
     """
     return wnt.lemmatize(token.lower())
@@ -56,16 +56,16 @@ def lemma_token(token):
 # Convert token to lowercase and stem
 def stem_token(token):
     """
-    Converts token to lowecase and stem 
+    Converts token to lowecase and stem .
 
     Parameters
     ----------
     token : str 
-    A token (usually a word) in the corpus
+    A token (usually a word) in the corpus.
 
     Returns
     -------
-    token with lowercase characters and stemmed root
+    Token with lowercase characters and stemmed root.
 
     """
     return ps.stem(token.lower())
@@ -74,12 +74,12 @@ def stem_token(token):
 # Evaluate whether or not to retain `token`
 def filter_token(token):
     """
-    Transforms token in lowercase and returns only alphabetic characters
+    Transforms token in lowercase and returns only alphabetic characters.
 
     Parameters
     ----------
     token : str 
-    A token (usually a word) in the corpus
+    A token (usually a word) in the corpus.
 
     Returns
     -------
@@ -94,17 +94,17 @@ def filter_token(token):
 # Lemmatize
 def corpus_lemma(corpus_list):
     """
-    Creates lemmatized corpus and lemmatized dictionary
+    Creates lemmatized corpus and lemmatized dictionary.
 
     Parameters
     ----------
-    corpus_list : list of str
-        List of tokens.
+    corpus_list : list of documents
+        List of plaintext documents.
 
     Returns
     -------
     dict_lemma : dict of (int, str)
-        a mapping between tokens and their integer ids.
+        A mapping between tokens and their integer ids.
     corpus_lemma : list of (token_id, token_count) tuples  
         List of tf-idf weighted counts of tokens in the corpus, after 
         lemmatized, removal of non alphabetic characters, stopwords and words
@@ -135,17 +135,17 @@ def corpus_lemma(corpus_list):
 # Stem 
 def corpus_stem (corpus_list):
      """
-    Creates stemmed corpus and stemmed dictionary
+    Creates stemmed corpus and stemmed dictionary.
 
     Parameters
     ----------
-    corpus_list : list of str
-        List of tokens.
+    corpus_list : list of documents
+        List of plaintext documents.
 
     Returns
     -------
     dict_stem : dict of (int, str)
-        a mapping between tokens and their integer ids.
+        A mapping between tokens and their integer ids.
     corpus_stem : list of (int, int)  
         List of (token_id, token_count) tuples, tf-idf weighted of tokens 
         stemmed, with alphabetic characters only, composed of more than 1 
@@ -179,21 +179,21 @@ def corpus_stem (corpus_list):
 def ud_lemma (ud_text, dict_lemma):
     """
     Preprocesses users input through lemmatization, lowercase, removal of 
-    stopwords and tokens with less than 2 characters and creates a bag of words
+    stopwords and tokens with less than 2 characters and creates a bag of words.
 
     Parameters
     ----------
     ud_text : list of str
         List of tokens produced by the user.
     dict_lemma : dict of (int, str)
-        a mapping between tokens in the corpus and their integer ids.
+        A mapping between tokens in the corpus and their integer ids.
 
     Returns
     -------
     ud_bow_lemma : list of (int, int) tuples
-        list of (token_id, token_count) tuples of user input, after 
-        lemmatized, removal of non alphabetic characters, stopwords and words
-        of less than 2 characters.
+        List of (token_id, token_count) tuples of user input, after lemmatized, 
+        removal of non alphabetic characters, stopwords and words of less than 
+        2 characters.
 
     """
     ud_tokens = nltk.word_tokenize(ud_text)
@@ -208,21 +208,20 @@ def ud_lemma (ud_text, dict_lemma):
 def ud_stem (ud_text, dict_stem):
      """
     Preprocesses users input through stem, lowercase, removal of  tokens with 
-    less than 2 characters and creates a bag of words
+    less than 2 characters and creates a bag of words.
 
     Parameters
     ----------
     ud_text : list of str
         List of tokens produced by the user.
     dict_stem : dict of (int, str)
-        a mapping between tokens in the corpus and their integer ids.
+        A mapping between tokens in the corpus and their integer ids.
 
     Returns
     -------
     ud_bow_stem : list of (int, int) tuples
-        list of (token_id, token_count) tuples of user input, after 
-        stem, removal of non alphabetic characters, stopwords, and of words
-        of less than 2 characters.
+        List of (token_id, token_count) tuples of user input, after stem, 
+        removal of non alphabetic characters, stopwords, and of words of less than 2 characters.
         
      """
      ud_tokens = nltk.word_tokenize(ud_text) 
