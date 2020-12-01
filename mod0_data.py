@@ -15,10 +15,10 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('punkt')
 
-ps = PorterStemmer()
-wnt = nltk.WordNetLemmatizer() # Lemmatizer
+ps = PorterStemmer() # stemmer
+wnt = nltk.WordNetLemmatizer() # lemmatizer
 
-stoplist = stopwords.words('english') # Stopwords
+stoplist = stopwords.words('english') # stopwords
 
 # Define additional stopwords in a string
 additional_stopwords = """http ask ha ox mcc christine task discussion chapter submit indicate io bot los angeles 
@@ -27,7 +27,7 @@ additional_stopwords = """http ask ha ox mcc christine task discussion chapter s
                           title school session topics project partner practice plan see supervise
                           thesis issue student topic supervision university lab mia mpp org etc"""   
                          
-stoplist += additional_stopwords.split() # Join both lists
+stoplist += additional_stopwords.split() # join both lists
 
 
 # =============================================================================
@@ -38,7 +38,7 @@ stoplist += additional_stopwords.split() # Join both lists
 # Convert token to lowercase and lemmatize
 def lemma_token(token):
     """
-    converts token to lowecase and lemmatized
+    Converts token to lowecase and lemmatizes
 
     Parameters
     ----------
@@ -56,7 +56,7 @@ def lemma_token(token):
 # Convert token to lowercase and stem
 def stem_token(token):
     """
-    converts token to lowecase and stem 
+    Converts token to lowecase and stem 
 
     Parameters
     ----------
