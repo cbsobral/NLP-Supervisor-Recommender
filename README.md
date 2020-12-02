@@ -1,7 +1,7 @@
 # **Supervisor Recommendation Tool - Final Report**
 ## **The Project**
 
-In this project, we use the "Natural Language Toolkit" ([nltk](https://www.nltk.org/)) and  [Gensim](https://radimrehurek.com/gensim/) packages to employ topic modeling techniques for classifying the content of the 31 Master Thesis Colloquia supervision plans – downloaded from the Hertie School’s Mystudies database, and converted into .txt files – into different topics.
+In this project, we use the "Natural Language Toolkit" ([nltk](https://www.nltk.org/)) and  [Gensim](https://radimrehurek.com/gensim/) packages to employ topic modeling techniques for classifying the content of the 31 Master Thesis Colloquia supervision plans – downloaded from the Hertie School’s MyStudies database, and converted into .txt files – into different topics.
 
 These supervision plans compose the “corpus” of the work, from which we derive a model that generates per-document topic distributions. 
 
@@ -22,16 +22,16 @@ You can also test our model yourself, clicking [here](https://share.streamlit.io
 
 ## The Code
 
-Following up on the feedback we received in our Midterm Report, we have divided our script into four modules.
+Following up on the feedback we received in our Midterm Report, the project was divided into four modules.
 
 ### mod0_data
-This module defines functions and parameters that will be employed in preprocessing the text (for the corpus and for the user's input), such as Lemmatization, stem, removal of stopwords, removal of non-alphabetic numbers and punctuation.
+This module defines functions and parameters that will be employed for preprocessing the text (for the corpus and the user's input), such as Lemmatization, stem, removal of stopwords, removal of non-alphabetic numbers, and punctuation.
 
 ### mod1_model
 This module generates and saves the LDA model employed by the app, as well as the similarity matrix, using the preprocessed supervision plans as input.
 
 ### mod2_vis
-This module generates the graphs, wordclouds and other graphical representations that will be displayed by the app.
+This module generates the graphs, wordclouds, and other graphical representations that will be displayed by the app.
 
 ### mod3_app
 This module contains the app for Streamlit.
@@ -43,13 +43,13 @@ To run the app, you need to have the packages listed in the requirements.txt fil
 ## Behind the Code: What Changed since the Midterm
 Our progress can be traced back in the folder [initial](https://github.com/cbsobral/python/initial), where you can still see our progress up to the [Midterm Report](https://github.com/cbsobral/python/blob/master/initial/Midterm%20Report.md).
 
-We found out that the model was very sensitive to our choice of stopwords to be removed, as well as to the number of topics we employed. We tested the accuracy of our predictions using master thesis proposals of our friends, and then asking them whether the recommendations were consistent with their own perception, since all second year students have just gone through this process of selecting a supervisor. 
+We found out that the model was very sensitive to our choice of stopwords to be removed, as well as to the number of topics we employed. We tested the accuracy of our predictions using master thesis proposals of our friends and then asking them whether the recommendations were consistent with their perception since all second-year students have just gone through this process of selecting a supervisor. 
 
-Back in the midterm, we were only working with the topic modeling idea. But then, it occured to us that we could improve our output recommendations significantly if we crossed each supervisor plan to the user's input. We accomplished that using a similarity matrix, that first classifies supervision plans in relation to one another, and displays how supervision plans are associated to each topic. Once we have input from the user, we use this matrix to check how the plans of a given topic compare to the user's input.
+Back in the midterm, we were only working with the topic modeling idea. But then, it occurred to us that we could improve our output recommendations significantly if we crossed each supervisor plan to the user's input. We accomplished that using a similarity matrix, that first classifies supervision plans concerning one another, and displays how supervision plans are associated with each topic. Once we have input from the user, we use this matrix to check how the plans of a given topic compare to the user's input.
 
 With the idea of combining the two strategies(i.e. topic modeling and similarity matrix) in mind, we again revisited the number of topics we elected. We found that reducing the number of topics in the model provided for better recommendations in the end. 
 
-With [Streamlit](https://www.streamlit.io/), we developed the user's interface, where student's input their research proposals and receive the output. 
+With [Streamlit](https://www.streamlit.io/), we developed the user's interface, where students input their research proposals and receive the output. 
 
 
 ## References
