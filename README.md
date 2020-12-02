@@ -20,9 +20,6 @@ Due to the scope of our project, we aim to unveil topics that best represent res
 If you are interested in a 4 minutes presentation of our work, check out our [video](https://www.youtube.com/watch?v=mOxyVOVVxeA).
 You can also test our model yourself, clicking [here](https://share.streamlit.io/cbsobral/python/mod3_app.py).
 
-## Installation Requirements
-For this code to run smoothly you need to have the packages listed in the requirements.txt file installed. Furthermore, the objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_model`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are necessary to run the application. 
-
 ## The Code
 
 Following up on the feedback we received in our Midterm Report, we have divided our script into four modules.
@@ -41,6 +38,8 @@ This module creates the webpage where our app is hosted using Streamlit.
 
 Finally, it should be noted that the Streamlit app is hosted on this GitHub repo, so all files in the master root are there because they are necessary for the app to run smoothly.
 
+## Installation Requirements
+For this code to run smoothly you need to have the packages listed in the requirements.txt file installed. The objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_model`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are also necessary to run the application. 
 
 ## Behind the Code: What Changed since the Midterm
 Our progress can be traced back in the folder [initial](https://github.com/cbsobral/python/initial), where you can still see our progress up to the [Midterm Report](https://github.com/cbsobral/python/blob/master/initial/Midterm%20Report.md).
