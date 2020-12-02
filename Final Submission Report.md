@@ -28,16 +28,17 @@ Following up on the feedback we received in our Midterm Report, we have divided 
 
 We are working with 4 modules:
 
-# mod0_data
+### mod0_data
 This module defines functions and parameters that will be employed in preprocessing the text (for the corpus and for the user's input), such as Lemmatization, stem, removal of stopwords, removal of non-alphabetic numbers and punctuation.
 
-# mod1_model
+### mod1_model
 This module generates and saves the LDA model employed by the app, as well as the similarity matrix, using the preprocessed supervision plans as input.
 
-# mod2_vis
+### mod2_vis
 This module generates the graphs, wordclouds and other graphical representations that will be displayed by the app.
 
-# mod3_app
+
+### mod3_app
 This model creates the webpage where our app is hosted using streamlit.
 
 Finally, it should be noted that streamlit is connected to this github master folder. So, all files in the master root are there because they are necessary for the app to run smoothly.
