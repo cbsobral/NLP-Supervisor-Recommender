@@ -21,21 +21,11 @@ If you are interested in a 4 minutes presentation of our work, check out our [vi
 You can also test our model yourself, clicking [here](https://share.streamlit.io/cbsobral/python/mod3_app.py).
 
 ## Installation Requirements
-For this Code to run smoothly you need to have these packages installed:
-
-matplotlib==3.2.2
-wordcloud==1.8.1
-pandas==1.0.5
-gensim==3.8.3
-plotly==4.12.0
-streamlit==0.71.0
-nltk==3.5
+For this code to run smoothly you need to have the packages listed in the requirements.txt file installed. Furthermore, the objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_mode`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main Github folder -- are necessary to run the application. 
 
 ## The Code
 
-Following up on the feedback we received in our Midterm Report, we have divided our script into modules, and elaborated documentation for each function.
-
-We are working with 4 modules:
+Following up on the feedback we received in our Midterm Report, we have divided our script into four modules.
 
 ### mod0_data
 This module defines functions and parameters that will be employed in preprocessing the text (for the corpus and for the user's input), such as Lemmatization, stem, removal of stopwords, removal of non-alphabetic numbers and punctuation.
@@ -46,11 +36,10 @@ This module generates and saves the LDA model employed by the app, as well as th
 ### mod2_vis
 This module generates the graphs, wordclouds and other graphical representations that will be displayed by the app.
 
-
 ### mod3_app
-This module creates the webpage where our app is hosted using streamlit.
+This module creates the webpage where our app is hosted using Streamlit.
 
-Finally, it should be noted that streamlit is connected to this github master folder. So, all files in the master root are there because they are necessary for the app to run smoothly.
+Finally, it should be noted that the Streamlit app is hosted on this GitHub repo, so all files in the master root are there because they are necessary for the app to run smoothly.
 
 
 ## Behind the Code: What changed since Midterm
@@ -63,7 +52,7 @@ Back in the midterm, we were only working with the topic modeling idea. But then
 
 With the idea of combining the two strategies(i.e. topic modeling and similarity matrix) in mind, we again revisited the number of topics we elected. We found that reducing the number of topics in the model provided for better recommendations in the end. 
 
-With [streamlit](https://www.streamlit.io/), we developed the user's interface, where student's input their research proposals and receive our output. 
+With [Streamlit](https://www.streamlit.io/), we developed the user's interface, where student's input their research proposals and receive the output. 
 
 
 
