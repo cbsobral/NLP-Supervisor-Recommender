@@ -12,7 +12,7 @@ from multiprocessing import freeze_support
 # Compare user's input to LDA model    
 def results_plot(model, ud_bow):
     """
-    Generates a bar graph with the three topics that best match the user 
+    Generates a bar graph with the three topics that best match the user's 
     input, ordered by higher to lower match.
 
     Parameters
@@ -124,7 +124,7 @@ def words_vis (topic, topic_words, colors_fig, colors_wc):
     topic : int
         Number of associated topic.
     topic_words : DataFrame
-        DataFrame with the 20 most relevante words, displaying word_id, score, 
+        DataFrame with the 20 most relevant words, displaying word_id, score, 
         word and associated topic.
     colors_fig : str
         Color of the bar chart for words per topic. 
@@ -134,12 +134,12 @@ def words_vis (topic, topic_words, colors_fig, colors_wc):
     Returns
     -------
     fig : graph_objs._figure.Figure
-        Bar chart graph of 20 most relevant words per topic.
+        Bar chart graph of 10 most relevant words per topic.
     wd : wordcloud.Wordcloud
         Wordcloud of 20 most relevant words per topic.
 
     """
-    # Table with 10 results
+    # Table with 10 results for plot
     t_words = topic_words[(topic_words['topic'] == topic)].head(10)
     t_words['word'] = t_words['word'].str.capitalize()
     t_words['value'] = t_words['value']*100
@@ -230,15 +230,15 @@ def get_topics_doc(topics_document, num_topics):
 
     Parameters
     ----------
-    topics_document : TYPE
-        DESCRIPTION.
+    topics_document : list of (int, int) tuples
+        Topic number and association with each document (supervision plans).
     num_topics : int
         Topic Number.
 
     Returns
     -------
-    res : TYPE
-        DESCRIPTION.
+    res : DataFrame
+        DataFrame containing topic number and association with each document.
 
     """
     res = pd.DataFrame(columns=range(num_topics))
@@ -255,14 +255,13 @@ def get_topics_doc(topics_document, num_topics):
 # Similarity Matrix
 def sim_matrix(sim_model, ud_bow, supervisor_list):
     """
-    Applies the similarity matrix to user input to find more suitable 
-    supervisors within a given topic.
+    Applies the similarity matrix to the user's input to find supervisors 
+    within a given topic.
 
     Parameters
     ----------
     sim_model : similarities.docsim.SparseMatrixSimilarity
-        Similarity matrix identifiyng proximity between different supervision
-        plans
+        Similarity matrix identifiyng proximity between supervision plans.
     ud_bow : list of str
         List of words input by user, already preprocessed.
     supervisor_list : list of str
@@ -270,8 +269,9 @@ def sim_matrix(sim_model, ud_bow, supervisor_list):
 
     Returns
     -------
-    sim_pd : int
-        Similarity score of each supervision plan to user input.
+    sim_pd : DataFrame
+        DataFrame containing similarity score of each supervision plan to user
+        input.
 
     """
     sim = sim_model[ud_bow]
@@ -289,19 +289,19 @@ def recommend_df (document_topic, topic, sim_pd, supervisor_list):
 
     Parameters
     ----------
-    document_topic : list of int
-        List of three topics best matched to user input.
+    document_topic : DataFrame
+         DataFrame containing topic number and association with each document.
     topic : int
-        Numper of Topic
-    sim_pd : int
-        Similarity score of each supervision plan to user input.
+        Topic number. 
+    sim_pd : DataFrame
+        Similarity score of each supervision plan to the user's input.
     supervisor_list : list of str
         List of Supervisors associated with a given topic
 
     Returns
     -------
     c_df : DataFrame
-         DataFrame of associating supervisors per topic and similarity scores 
+         DataFrame associating supervisors per topic and similarity scores 
         to user input.
 
     """
@@ -339,18 +339,18 @@ def super_vis(first_topic, second_topic, third_topic, recom_1, recom_2, recom_3)
         Number of the topic of second best match to user input.
     third_topic : int
         Number of the topic of third best match to user input.
-    recom_1 : list
-        List of supervisors associated with first_topic. 
-    recom_2 : list
-        List of supervisors associated with second_topic.
-    recom_3 : list
-        List of supervisors associated with third_topic.
+    recom_1 : DataFrame
+        DataFrame containing supervisors and scores associated with first_topic. 
+    recom_2 : DataFrame
+        DataFrame containing supervisors and scores associated with second_topic.
+    recom_3 : DataFrame
+        DataFrame containing supervisors and scores associated with third_topic.
 
     Returns
     -------
     fig : graph_objs._figure.Figure
         Bar chart displaying score of association of each supervisor to user 
-        input.
+        input per top 3 topics. 
 
     """
     fig = go.Figure()
@@ -368,6 +368,7 @@ def super_vis(first_topic, second_topic, third_topic, recom_1, recom_2, recom_3)
                              text=recom_3['Similarity'], orientation='h', visible=False,
                              marker={'color': recom_3['Similarity'],'colorscale': 'Oryel'}))
     
+    # Update axis and format text
     fig.update_xaxes(matches=None, title_text='Similarity Score', ticks="outside")
     fig.update_yaxes(matches=None, title_text='Supervisor', ticks="outside", tickcolor='white', ticklen=2)
     fig.update_traces(texttemplate='%{text:.1f}%', textposition='outside', cliponaxis=False)
