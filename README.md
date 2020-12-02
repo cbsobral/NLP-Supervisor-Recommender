@@ -39,11 +39,10 @@ This module creates the webpage where our app is hosted using Streamlit.
 Finally, it should be noted that the Streamlit app is hosted on this GitHub repo, so all files in the master root are there because they are necessary for the app to run smoothly.
 
 ## Installation Requirements
-For this code to run smoothly you need to have the packages listed in the requirements.txt file installed. The objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_model`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are also necessary to run the application. 
+To run the app, you need to have the packages listed in the requirements.txt file installed. The objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_model`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are also necessary to run the application. 
 
 ## Behind the Code: What Changed since the Midterm
 Our progress can be traced back in the folder [initial](https://github.com/cbsobral/python/initial), where you can still see our progress up to the [Midterm Report](https://github.com/cbsobral/python/blob/master/initial/Midterm%20Report.md).
-For our topic model, after extensive comparison of models, we found that a TD-IDF weighted DFM provided a best selection of words representative to each topic. The topic model itself employs a Latent Dirichlet Allocation (LDA).
 
 We found out that the model was very sensitive to our choice of stopwords to be removed, as well as to the number of topics we employed. We tested the accuracy of our predictions using master thesis proposals of our friends, and then asking them whether the recommendations were consistent with their own perception, since all second year students have just gone through this process of selecting a supervisor. 
 
@@ -52,7 +51,6 @@ Back in the midterm, we were only working with the topic modeling idea. But then
 With the idea of combining the two strategies(i.e. topic modeling and similarity matrix) in mind, we again revisited the number of topics we elected. We found that reducing the number of topics in the model provided for better recommendations in the end. 
 
 With [Streamlit](https://www.streamlit.io/), we developed the user's interface, where student's input their research proposals and receive the output. 
-
 
 
 ## References
