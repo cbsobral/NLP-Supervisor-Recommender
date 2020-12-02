@@ -21,6 +21,15 @@ If you are interested in a 4 minutes presentation of our work, check out our [vi
 You can also test our model yourself, clicking [here](https://share.streamlit.io/cbsobral/python/mod3_app.py).
 
 ## Installation Requirements
+For this Code to run smoothly you need to have these packages installed:
+
+matplotlib==3.2.2
+wordcloud==1.8.1
+pandas==1.0.5
+gensim==3.8.3
+plotly==4.12.0
+streamlit==0.71.0
+nltk==3.5
 
 ## The Code
 
