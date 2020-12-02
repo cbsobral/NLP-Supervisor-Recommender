@@ -21,7 +21,7 @@ If you are interested in a 4 minutes presentation of our work, check out our [vi
 You can also test our model yourself, clicking [here](https://share.streamlit.io/cbsobral/python/mod3_app.py).
 
 ## Installation Requirements
-For this code to run smoothly you need to have the packages listed in the requirements.txt file installed. Furthermore, the objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_mode`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main Github folder -- are necessary to run the application. 
+For this code to run smoothly you need to have the packages listed in the requirements.txt file installed. Furthermore, the objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_mode`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are necessary to run the application. 
 
 ## The Code
 
