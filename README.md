@@ -43,7 +43,7 @@ Finally, it should be noted that the Streamlit app is hosted on this GitHub repo
 
 
 ## Behind the Code: What Changed since the Midterm
-Our progress can be traced back in the folder [initial](https://github.com/cbsobral/python/initial), where you can still see our progress up to the [Midterm Report](https://github.com/cbsobral/python/blob/master/Midterm%20Report.MD).
+Our progress can be traced back in the folder [initial](https://github.com/cbsobral/python/initial), where you can still see our progress up to the [Midterm Report](https://github.com/cbsobral/python/blob/master/initial/Midterm%20Report.md).
 For our topic model, after extensive comparison of models, we found that a TD-IDF weighted DFM provided a best selection of words representative to each topic. The topic model itself employs a Latent Dirichlet Allocation (LDA).
 
 We found out that the model was very sensitive to our choice of stopwords to be removed, as well as to the number of topics we employed. We tested the accuracy of our predictions using master thesis proposals of our friends, and then asking them whether the recommendations were consistent with their own perception, since all second year students have just gone through this process of selecting a supervisor. 
