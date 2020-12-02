@@ -42,7 +42,7 @@ This module creates the webpage where our app is hosted using Streamlit.
 Finally, it should be noted that the Streamlit app is hosted on this GitHub repo, so all files in the master root are there because they are necessary for the app to run smoothly.
 
 
-## Behind the Code: What changed since Midterm
+## Behind the Code: What Changed since the Midterm
 Our progress can be traced back in the folder [initial](https://github.com/cbsobral/python/initial), where you can still see our progress up to the [Midterm Report](https://github.com/cbsobral/python/blob/master/Midterm%20Report.MD).
 For our topic model, after extensive comparison of models, we found that a TD-IDF weighted DFM provided a best selection of words representative to each topic. The topic model itself employs a Latent Dirichlet Allocation (LDA).
 
