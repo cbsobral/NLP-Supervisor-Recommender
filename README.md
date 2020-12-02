@@ -34,9 +34,8 @@ This module generates and saves the LDA model employed by the app, as well as th
 This module generates the graphs, wordclouds and other graphical representations that will be displayed by the app.
 
 ### mod3_app
-This module creates the webpage where our app is hosted using Streamlit.
-
-Finally, it should be noted that the Streamlit app is hosted on this GitHub repo, so all files in the master root are there because they are necessary for the app to run smoothly.
+This module contains the app for Streamlit.
+It should be noted that the Streamlit app is hosted on this GitHub repo, so all files in the master root are there because they are necessary for the app to run smoothly.
 
 ## Running the Application
 To run the app, you need to have the packages listed in the requirements.txt file installed. The objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_model`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are also necessary to run the application. 
