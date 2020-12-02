@@ -39,7 +39,7 @@ This module generates the graphs, wordclouds and other graphical representations
 
 
 ### mod3_app
-This model creates the webpage where our app is hosted using streamlit.
+This module creates the webpage where our app is hosted using streamlit.
 
 Finally, it should be noted that streamlit is connected to this github master folder. So, all files in the master root are there because they are necessary for the app to run smoothly.
 
