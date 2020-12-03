@@ -101,7 +101,7 @@ def get_topic_words (model, dictionary):
     Returns
     -------
     topic_words : DataFrame
-        DataFrame with the 20 most relevante words, displaying word_id, score, 
+        DataFrame with the 20 most relevant words, displaying word_id, score, 
         word and associated topic.
 
     """
