@@ -25,7 +25,7 @@ You can also test our model yourself, clicking [here](https://share.streamlit.io
 Following up on the feedback we received in our Midterm Report, the project was divided into four modules.
 
 ### mod0_data
-This module defines functions and parameters that will be employed for preprocessing the text (for the corpus and the user's input), such as Lemmatization, stem, removal of stopwords, removal of non-alphabetic numbers, and punctuation.
+This module defines functions and parameters that will be employed for preprocessing the text (for the corpus and the user's input), such as Lemmatization, stem, removal of stopwords, removal of non-alphabetic characters, and punctuation.
 
 ### mod1_model
 This module generates and saves the LDA model employed by the app, as well as the similarity matrix, using the preprocessed supervision plans as input.
