@@ -109,10 +109,10 @@ def corpus_lemma(corpus_list):
         The main function is doc2bow, which converts a collection of words to 
         its bag-of-words representation: a list of (word_id, word_frequency) 
         2-tuples.
-    corpus_lemma : list of (token_id, token_count) tuples  
-        List of tf-idf weighted counts of tokens in the corpus, after 
-        lemmatized, removal of non alphabetic characters, stopwords and words
-        of more than 1 character.
+    corpus_lemma : corpora.mmcorpus.Mmcorpus  
+        Corpus serialized using the sparse coordinate Matrix Market format, 
+        after tf-idf weighting, lemmatization, removal of non alphabetic 
+        characters, stopwords and words of less than 1 character.
 
     """
     # Filter and lemmatize
@@ -154,10 +154,10 @@ def corpus_stem (corpus_list):
         The main function is doc2bow, which converts a collection of words to 
         its bag-of-words representation: a list of (word_id, word_frequency) 
         2-tuples.
-    corpus_stem : list of (int, int)  
-        List of (token_id, token_count) tuples, tf-idf weighted of tokens 
-        stemmed, with alphabetic characters only, composed of more than 1 
-        character, and without stopwords.
+    corpus_stem : corpora.mmcorpus.Mmcorpus  
+        Corpus serialized using the sparse coordinate Matrix Market format,
+        tf-idf weighting of tokens stemmed, with alphabetic characters only, 
+        composed of more than 1 character, and without stopwords.
 
     """
     # Filter and stem

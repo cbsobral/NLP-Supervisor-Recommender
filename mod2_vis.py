@@ -285,7 +285,7 @@ def sim_matrix(sim_model, ud_bow, supervisor_list):
 # Table with final recommendations
 def recommend_df (document_topic, topic, sim_pd, supervisor_list):
     """
-    Generates a list of recommendations per selected topic.
+    Generates supervisor recommendations per selected topic.
 
     Parameters
     ----------
