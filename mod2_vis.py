@@ -1,3 +1,9 @@
+"""
+This module generates the graphs, wordclouds, and other graphical 
+representations that will be displayed by the app.
+
+"""
+
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px

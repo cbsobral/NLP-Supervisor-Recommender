@@ -1,3 +1,9 @@
+"""
+This module generates and saves the LDA model employed by the app, as well as 
+the similarity matrix, using the preprocessed supervision plans as input.
+    
+"""
+
 # Import packages 
 from mod0_data import corpus_lemma, corpus_stem 
 import gensim

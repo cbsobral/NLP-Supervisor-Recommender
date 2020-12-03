@@ -1,3 +1,12 @@
+
+"""
+This module defines functions and parameters that will be employed for 
+preprocessing the text (for the corpus and the user's input), such as 
+Lemmatization, stem, removal of stopwords, removal of non-alphabetic 
+characters, and punctuation.
+    
+"""
+
 import nltk
 import gensim
 from gensim import models
