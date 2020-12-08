@@ -3,7 +3,6 @@ This module contains the app for Streamlit.
 
 """
 
-
 from mod0_data import ud_lemma, ud_stem 
 from mod2_vis import results_plot, get_topic_words, words_vis, get_topics_doc, supervisors, sim_matrix, recommend_df, super_vis
 import streamlit as st
@@ -181,7 +180,7 @@ else:
 # Recommendations
 # =============================================================================
     
-    # Create similarity df
+    # Create similarity data frame
     sim_pd = sim_matrix(sim_model, ud_bow_stem, supervisor_list)
     
     # Tables with recommendation per topic

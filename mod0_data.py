@@ -205,8 +205,7 @@ def ud_lemma (ud_text, dict_lemma):
         Tokens produced by the user.
     dict_lemma : dict of (int, str)
         Dictionary encapsulates the mapping between normalized words and their 
-        integer ids. 
-        The main function is doc2bow, which converts a collection of words to 
+        integer ids. The main function is doc2bow, which converts a collection of words to 
         its bag-of-words representation: a list of (word_id, word_frequency) 
         2-tuples.
     Returns

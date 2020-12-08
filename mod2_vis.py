@@ -15,7 +15,6 @@ from multiprocessing import freeze_support
 # Top 3 Topics
 # =============================================================================
 
-# Compare user's input to LDA model    
 def results_plot(model, ud_bow):
     """
     Generates a bar graph with the three topics that best match the user's 
@@ -81,7 +80,6 @@ def results_plot(model, ud_bow):
 # Words per Top Topics
 # =============================================================================
 
-# Table with top words per topic    
 def get_topic_words (model, dictionary):
     """
     Generates a table with the 20 most relevant words in each topic.
@@ -119,7 +117,6 @@ def get_topic_words (model, dictionary):
     return topic_words
     
 
-# WordCloud and plot for top 3 topics
 def words_vis (topic, topic_words, colors_fig, colors_wc):
     """
     Generates a barchart and a wordcloud displaying the 20 most relevant words
@@ -179,7 +176,6 @@ def words_vis (topic, topic_words, colors_fig, colors_wc):
 # # Recommendations
 # # =============================================================================
 
-# Create index for sim_pd
 def supervisors():    
     """
     Identifies supervisor by name and associates a hyperlink to the respective 
@@ -228,7 +224,6 @@ def supervisors():
     return supervisors
 
 
-# Create table with supervisors using results from comparison with corpus
 def get_topics_doc(topics_document, num_topics):
     """
     Generates a DataFrame with supervisors, topics and their score of 
@@ -258,7 +253,6 @@ def get_topics_doc(topics_document, num_topics):
 # Similarities
 # =============================================================================
 
-# Similarity Matrix
 def sim_matrix(sim_model, ud_bow, supervisor_list):
     """
     Applies the similarity matrix to the user's input to find supervisors 
@@ -288,7 +282,6 @@ def sim_matrix(sim_model, ud_bow, supervisor_list):
     return sim_pd
 
 
-# Table with final recommendations
 def recommend_df (document_topic, topic, sim_pd, supervisor_list):
     """
     Generates supervisor recommendations per selected topic.
@@ -302,7 +295,7 @@ def recommend_df (document_topic, topic, sim_pd, supervisor_list):
     sim_pd : DataFrame
         Similarity score of each supervision plan to the user's input.
     supervisor_list : list of str
-        List of Supervisors associated with a given topic
+        List of supervisors associated with a given topic
 
     Returns
     -------
@@ -331,7 +324,6 @@ def recommend_df (document_topic, topic, sim_pd, supervisor_list):
 # Supervisor Recommendation Plot
 # =============================================================================
 
-# Plot with supervisor recommendations per top 3 topics
 def super_vis(first_topic, second_topic, third_topic, recom_1, recom_2, recom_3):
     """
     Generates bar chart with supervisors and their score of similarity to users
