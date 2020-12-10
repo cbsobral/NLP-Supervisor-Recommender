@@ -103,7 +103,7 @@ def filter_token(token):
 # Lemmatize
 def corpus_lemma(corpus_list):
     """
-    Creates lemmatized corpus and lemmatized dictionary.
+    Creates lemmatized corpus and dictionary.
 
     Parameters
     ----------
@@ -112,11 +112,10 @@ def corpus_lemma(corpus_list):
 
     Returns
     -------
-    dict_lemma : dict of (int, str)
+    dict_lemma : corpora.dictionary.Dictionary
         Dictionary encapsulates the mapping between normalized words and their 
-        integer ids. 
-        The main function is doc2bow, which converts a collection of words to 
-        its bag-of-words representation: a list of (word_id, word_frequency) 
+        integer ids. The main function is doc2bow, which converts a collection 
+        of words to its bag-of-words representation: a list of (word_id, word_frequency) 
         2-tuples.
     corpus_lemma : corpora.mmcorpus.Mmcorpus  
         Corpus serialized using the sparse coordinate Matrix Market format, 
@@ -148,7 +147,7 @@ def corpus_lemma(corpus_list):
 # Stem 
 def corpus_stem (corpus_list):
      """
-    Creates stemmed corpus and stemmed dictionary.
+    Creates stemmed corpus and dictionary.
 
     Parameters
     ----------
@@ -157,11 +156,10 @@ def corpus_stem (corpus_list):
 
     Returns
     -------
-    dict_stem : dict of (int, str)
+    dict_stem :corpora.dictionary.Dictionary
         Dictionary encapsulates the mapping between normalized words and their 
-        integer ids. 
-        The main function is doc2bow, which converts a collection of words to 
-        its bag-of-words representation: a list of (word_id, word_frequency) 
+        integer ids. The main function is doc2bow, which converts a collection 
+        of words to its bag-of-words representation: a list of (word_id, word_frequency) 
         2-tuples.
     corpus_stem : corpora.mmcorpus.Mmcorpus  
         Corpus serialized using the sparse coordinate Matrix Market format,
@@ -203,10 +201,10 @@ def ud_lemma (ud_text, dict_lemma):
     ----------
     ud_text : str
         Tokens produced by the user.
-    dict_lemma : dict of (int, str)
+    dict_lemma : corpora.dictionary.Dictionary
         Dictionary encapsulates the mapping between normalized words and their 
-        integer ids. The main function is doc2bow, which converts a collection of words to 
-        its bag-of-words representation: a list of (word_id, word_frequency) 
+        integer ids. The main function is doc2bow, which converts a collection 
+        of words to its bag-of-words representation: a list of (word_id, word_frequency) 
         2-tuples.
     Returns
     -------
@@ -234,11 +232,10 @@ def ud_stem (ud_text, dict_stem):
     ----------
     ud_text : list of str
         List of tokens produced by the user.
-    dict_stem : dict of (int, str)
+    dict_stem : corpora.dictionary.Dictionary
         Dictionary encapsulates the mapping between normalized words and their 
-        integer ids. 
-        The main function is doc2bow, which converts a collection of words to 
-        its bag-of-words representation: a list of (word_id, word_frequency) 
+        integer ids. The main function is doc2bow, which converts a collection 
+        of words to its bag-of-words representation: a list of (word_id, word_frequency) 
         2-tuples.
     Returns
     -------

@@ -33,7 +33,7 @@ st.sidebar.markdown("This is an app designed to help you match your research pro
 st.sidebar.subheader("What should I do?")
 st.sidebar.markdown("1. Copy and paste your research proposal in the box. You can also just type your research interests. \n2. Check out which of the topics in our model best relate to your idea. \n3. Select one of the topics and see which professors match your interests.")
 st.sidebar.subheader("Is this witchcraft?")
-st.sidebar.markdown("Err... no. We used Python to employ a Latent Dirichlet Allocation (LDA) topic model to unveil the underlying topics from the collection of supervision plans available at [MyStudies](https://mystudies.hertie-school.org/en/). ")
+st.sidebar.markdown("Err... no. We used Python to employ a Latent Dirichlet Allocation (LDA) topic model to infere 6 - numbered 0 to 5 - topics from the collection of supervision plans available at [MyStudies](https://mystudies.hertie-school.org/en/). ")
 st.sidebar.markdown("Based on the model, we then checked which topics from the supervision plans were best suited to represent your interests. ")
 st.sidebar.markdown("Finally, to narrow it down, we ran a similarity score between your proposal and the professors' plans associated with the topic you thought better represented your interests. This is our final output.")
 st.sidebar.subheader("What now?")
@@ -56,7 +56,7 @@ dict_stem = corpora.Dictionary.load('dict_stem')
 # Load LDA Model
 lda_model =  models.LdaModel.load('lda_model')
 
-# Load Similarities Matrix
+# Load Similarity Matrix
 sim_model = similarities.MatrixSimilarity.load('sim_model')
 
 
@@ -87,22 +87,22 @@ else:
     # Filter and stem user's input
     ud_bow_stem = ud_stem(ud_text, dict_stem)
     
- 
     
 # =============================================================================
 # Top 3 Topics Plot
 # =============================================================================
     
+    # Create first graph with topic matches
     results_fig, first_topic, second_topic, third_topic = results_plot(lda_model, ud_bow_lemma) 
     
-    
+    # Plot on Streamlit
     st.header("Matching Topics")
     st.write("These are the topics more closely related to your proposal:")
     st.plotly_chart(results_fig)
 
   
 # =============================================================================
-# Words per topic - Plot and WordCloud
+# Words per topic - Plots and WordClouds
 # =============================================================================
     
     # Get words per topic table
@@ -161,10 +161,10 @@ else:
       
    
 # =============================================================================
-# Professors per Topic
+# Supervisors per Topic
 # =============================================================================
     
-    # Create table with supervisor prob per topics
+    # Generate table with supervisor probability per topics matched with user
     supervisor_list = supervisors()
     topics = [lda_model[corpus_lemma[i]] for i in range(len(supervisor_list))]
     num_topics = 6
@@ -177,7 +177,7 @@ else:
      
     
 # =============================================================================
-# Recommendations
+# Final Recommendations
 # =============================================================================
     
     # Create similarity data frame
@@ -191,7 +191,7 @@ else:
     # Visualization
     fig_s = super_vis(first_topic, second_topic, third_topic, recom_1, recom_2, recom_3)
     
-   
+    # Plot on Streamlit
     st.header("Recommendations")
     st.write("Which of the previous topics do you think is a better match for you? Select a topic from the dropdown menu to see our supervisor recommendations for each topic.")
     st.plotly_chart(fig_s)

@@ -1,6 +1,6 @@
 """
 This module generates the graphs, wordclouds, and other graphical 
-representations that will be displayed by the app.
+representations that will be displayed by the Streamlit app.
 
 """
 
@@ -12,7 +12,7 @@ from matplotlib import pyplot as plt
 from multiprocessing import freeze_support
 
 # =============================================================================
-# Top 3 Topics
+# Top 3 Matching Topics
 # =============================================================================
 
 def results_plot(model, ud_bow):
@@ -25,8 +25,8 @@ def results_plot(model, ud_bow):
     model : gensim.models.ldamodel.LdaModel
         LDA Model containing the topics extracted from the corpus of 
         supervision plans.
-    ud_bow :  list of (int, int) tuples
-        List of (token_id, token_count) tuples of user input, after text
+    ud_bow :  list of (int, int) 
+        List of (token_id, token_count) of user input, after text
         preprocessing.
 
     Returns
@@ -49,7 +49,7 @@ def results_plot(model, ud_bow):
     results_top = (results.nlargest(3,['Score']))  # Top 3 topics
     results_top['Score'] = results_top['Score']*100
     
-    # Get top topic numbers
+    # Create variables with matching topic numbers
     first_topic = int(results_top.iloc[0]['Topic'])
     second_topic = int(results_top.iloc[1]['Topic'])
     third_topic = int(results_top.iloc[2]['Topic'])
@@ -89,11 +89,10 @@ def get_topic_words (model, dictionary):
     model : gensim.models.ldamodel.LdaModel
         LDA Model containing the topics extracted from the corpus of 
         supervision plans.
-    dictionary : dict of (int, str)
+    dictionary : corpora.dictionary.Dictionary
         Dictionary encapsulates the mapping between normalized words and their 
-        integer ids. 
-        The main function is doc2bow, which converts a collection of words to 
-        its bag-of-words representation: a list of (word_id, word_frequency) 
+        integer ids. The main function is doc2bow, which converts a collection 
+        of words to its bag-of-words representation: a list of (word_id, word_frequency) 
         2-tuples.
 
     Returns
@@ -119,8 +118,8 @@ def get_topic_words (model, dictionary):
 
 def words_vis (topic, topic_words, colors_fig, colors_wc):
     """
-    Generates a barchart and a wordcloud displaying the 20 most relevant words
-    in the three selected topics.
+    Generates a bar chart and a wordcloud displaying the 10 and 20 most relevant
+    words in the three selected topics.
 
     Parameters
     ----------
@@ -142,7 +141,7 @@ def words_vis (topic, topic_words, colors_fig, colors_wc):
         Wordcloud of 20 most relevant words per topic.
 
     """
-    # Table with 10 results for plot
+    # Table with 10 results for fig
     t_words = topic_words[(topic_words['topic'] == topic)].head(10)
     t_words['word'] = t_words['word'].str.capitalize()
     t_words['value'] = t_words['value']*100
@@ -234,12 +233,12 @@ def get_topics_doc(topics_document, num_topics):
     topics_document : list of (int, int) tuples
         Topic number and association with each document (supervision plans).
     num_topics : int
-        Topic Number.
+        Number of topics in LDA Model. 
 
     Returns
     -------
     res : DataFrame
-        DataFrame containing topic number and association with each document.
+        DataFrame containing topic number and association with each supervision plan.
 
     """
     res = pd.DataFrame(columns=range(num_topics))
@@ -262,15 +261,15 @@ def sim_matrix(sim_model, ud_bow, supervisor_list):
     ----------
     sim_model : similarities.docsim.SparseMatrixSimilarity
         Similarity matrix identifiyng proximity between supervision plans.
-    ud_bow : list of str
-        List of words input by user, already preprocessed.
+    ud_bow : list of (int, int) 
+        List of (token_id, token_count) of user input, after text preprocessing.
     supervisor_list : list of str
         List of supervisor plans identified by respective professors.
 
     Returns
     -------
     sim_pd : DataFrame
-        DataFrame containing similarity score of each supervision plan to user
+        DataFrame containing similarity score of each supervision plan to user's
         input.
 
     """
@@ -301,7 +300,7 @@ def recommend_df (document_topic, topic, sim_pd, supervisor_list):
     -------
     c_df : DataFrame
          DataFrame associating supervisors per topic and similarity scores 
-        to user input.
+        to user input within matching topics. 
 
     """
     # Supervisor recommendations per topic
@@ -347,8 +346,8 @@ def super_vis(first_topic, second_topic, third_topic, recom_1, recom_2, recom_3)
     Returns
     -------
     fig : graph_objs._figure.Figure
-        Bar chart displaying score of association of each supervisor to user 
-        input per top 3 topics. 
+        Bar chart displaying similarity score of each supervisor to user 
+        input per top 3 matching topics. 
 
     """
     fig = go.Figure()
