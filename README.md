@@ -41,7 +41,7 @@ It should be noted that the Streamlit app is hosted on this GitHub repo, so all 
 To run the app, you need to have the packages listed in the requirements.txt file installed. The objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_model`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are also necessary to run the application. 
 
 ## Behind the Code: What Changed since the Midterm
-Our progress can be traced back in the folder [initial](https://github.com/cbsobral/python/initial), where you can still see our progress up to the [Midterm Report](https://github.com/cbsobral/python/blob/master/initial/Midterm%20Report.md).
+Our progress can be traced back in the folder [initial](https://github.com/cbsobral/python/tree/master/initial), where you can still see our progress up to the [Midterm Report](https://github.com/cbsobral/python/blob/master/initial/Midterm%20Report.md).
 
 We found out that the model was very sensitive to our choice of stopwords to be removed, as well as to the number of topics we employed. We tested the accuracy of our predictions using master thesis proposals of our friends and then asking them whether the recommendations were consistent with their perception since all second-year students have just gone through this process of selecting a supervisor. 
 
