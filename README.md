@@ -1,44 +1,27 @@
 # **Supervisor Recommendation Tool - Final Report**
-## **The Project**
 
-In this project, we use the "Natural Language Toolkit" ([nltk](https://www.nltk.org/)) and  [Gensim](https://radimrehurek.com/gensim/) packages to employ topic modeling techniques for classifying the content of the 31 Master Thesis Colloquia supervision plans – downloaded from the Hertie School’s MyStudies database, and converted into .txt files – into different topics.
+## Project Overview
+Our project introduces a sophisticated method for classifying and matching Master's thesis supervision plans using Natural Language Processing (NLP) techniques. We have utilized Python libraries such as the Natural Language Toolkit (NLTK) and Gensim to employ topic modeling techniques on a corpus composed of 31 supervision plans. These plans were sourced from the Hertie School’s MyStudies database, converted into .txt files, and then used to generate per-document topic distributions.
 
-These supervision plans compose the “corpus” of the work, from which we derive a model that generates per-document topic distributions. 
+The primary output of our project is a model that not only identifies and categorizes different topics but also creates a similarity matrix, illustrating the degree to which supervision plans are related. This model is then applied to a student's research proposal to extract the best matches between the student's interests and the topics identified in our model.
 
-We also generated a similarity matrix, that displays how supervision plans are similar to each other.
+Upon identifying the most suitable topic, we recommend the supervisors best aligned with that topic, ranked by their similarity score with the student's proposal. Our topic modeling technique rests on the premise that every document is a blend of distinct topics, and each topic is a collection of related words.
 
-Then, we apply the model to the text of a student's research proposal, to extract the best matches between their interests and the topics of our model.
+The ultimate aim of our project is to uncover topics that encapsulate research interests and methodologies effectively, as these are crucial in pairing students and supervisors. For a concise overview of our work, you may watch our four-minute video presentation or try our model yourself by clicking here.
 
-Finally, based on the selection of the best topic, we recommend the supervisors within that topic, ordered by their similarity score with the student's proposal.
+## Code Structure
+In response to the feedback received on our Midterm Report, we structured our project into four primary modules:
 
-Topic modeling is based on the assumption that each document in a text is a combination of certain topics and that each topic is a combination of related words.
+mod0_data: This module lays out functions and parameters for preprocessing text from both the corpus and user input. Processes such as lemmatization, stemming, removal of stopwords, non-alphabetic characters, and punctuation are included in this module.
 
-The objective of this script is to extract the underlying topics from the collection of Master Thesis Colloquia supervision plans and compare them to the underlying topics of a student’s research proposal.
+mod1_model: This module constructs and saves the Latent Dirichlet Allocation (LDA) model used by our application, as well as the similarity matrix, using the preprocessed supervision plans as input.
 
-Due to the scope of our project, we aim to unveil topics that best represent research interests and/or research methodologies, as these are the main criteria for matching students and supervisors.
+mod2_vis: This module is responsible for generating visual outputs such as graphs, word clouds, and other graphical representations that are showcased by our application.
 
-If you are interested in a 4 minutes presentation of our work, check out our [video](https://www.youtube.com/watch?v=mOxyVOVVxeA).
-You can also test our model yourself, clicking [here](https://share.streamlit.io/cbsobral/python/mod3_app.py).
-
-## The Code
-
-Following up on the feedback we received in our Midterm Report, the project was divided into four modules.
-
-### mod0_data
-This module defines functions and parameters that will be employed for preprocessing the text (for the corpus and the user's input), such as Lemmatization, stem, removal of stopwords, removal of non-alphabetic characters, and punctuation.
-
-### mod1_model
-This module generates and saves the LDA model employed by the app, as well as the similarity matrix, using the preprocessed supervision plans as input.
-
-### mod2_vis
-This module generates the graphs, wordclouds, and other graphical representations that will be displayed by the app.
-
-### mod3_app
-This module contains the app for Streamlit.
-It should be noted that the Streamlit app is hosted on this GitHub repo, so all files in the master root are there because they are necessary for the app to run smoothly.
+mod3_app: This module contains our Streamlit application. It is worth noting that the Streamlit app is hosted on this GitHub repository, and all files in the master root are included as they are necessary for the smooth running of the app.
 
 ## Running the Application
-To run the app, you need to have the packages listed in the requirements.txt file installed. The objects `corpus_lemma`, `corpus_lemma.index`, `dict_lemma`, `corpus_stem`, `corpus_stem.index`, `dict_stem`, `sim_model` and `lda_model`(including `lda_model.expElogbeta.npy`, `lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are also necessary to run the application. 
+To execute our application, please ensure you have installed all packages listed in the requirements.txt file. Additionally, objects such as corpus_lemma, corpus_lemma.index, dict_lemma, corpus_stem, corpus_stem.index, dict_stem, sim_model, and lda_model, located in the main GitHub folder, are also required for the application to function correctly.`lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are also necessary to run the application. 
 
 
 ## References
