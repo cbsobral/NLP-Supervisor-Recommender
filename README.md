@@ -1,4 +1,4 @@
-# **Supervisor Recommendation Tool - Final Report**
+# **NLP Supervisor Recommender**
 
 ## Project Overview
 The project leverages Natural Language Processing (NLP) tools to classify and match Master's thesis supervision plans. Python libraries such as the Natural Language Toolkit (NLTK) and Gensim have been employed to apply topic modeling techniques on a corpus comprising 31 supervision plans. These plans, sourced from the Hertie School’s MyStudies database and converted into .txt files, are used to generate per-document topic distributions.
