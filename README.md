@@ -1,27 +1,27 @@
 # **Supervisor Recommendation Tool - Final Report**
 
 ## Project Overview
-Our project introduces a sophisticated method for classifying and matching Master's thesis supervision plans using Natural Language Processing (NLP) techniques. We have utilized Python libraries such as the Natural Language Toolkit (NLTK) and Gensim to employ topic modeling techniques on a corpus composed of 31 supervision plans. These plans were sourced from the Hertie School’s MyStudies database, converted into .txt files, and then used to generate per-document topic distributions.
+The project leverages Natural Language Processing (NLP) tools to classify and match Master's thesis supervision plans. Python libraries such as the Natural Language Toolkit (NLTK) and Gensim have been employed to apply topic modeling techniques on a corpus comprising 31 supervision plans. These plans, sourced from the Hertie School’s MyStudies database and converted into .txt files, are used to generate per-document topic distributions.
 
-The primary output of our project is a model that not only identifies and categorizes different topics but also creates a similarity matrix, illustrating the degree to which supervision plans are related. This model is then applied to a student's research proposal to extract the best matches between the student's interests and the topics identified in our model.
+A model has been developed as the core output of the project. It identifies and categorizes different topics and creates a similarity matrix, demonstrating the degree to which supervision plans are interrelated. This model can be applied to a student's research proposal to find the best matches between the student's interests and the topics identified by the model.
 
-Upon identifying the most suitable topic, we recommend the supervisors best aligned with that topic, ranked by their similarity score with the student's proposal. Our topic modeling technique rests on the premise that every document is a blend of distinct topics, and each topic is a collection of related words.
+Once the most suitable topic is identified, supervisors best aligned with that topic are recommended. They are ranked based on their similarity score with the student's proposal. The topic modeling technique rests on the premise that every document is a blend of distinct topics, and each topic is a collection of related words.
 
-The ultimate aim of our project is to uncover topics that encapsulate research interests and methodologies effectively, as these are crucial in pairing students and supervisors. For a concise overview of our work, you may watch our four-minute video presentation or try our model yourself by clicking here.
+The primary aim of the project is to uncover topics that encapsulate research interests and methodologies effectively, as these are pivotal in pairing students and supervisors. A four-minute video presentation provides an overview of the project, or the model can be tried out by clicking here.
 
 ## Code Structure
-In response to the feedback received on our Midterm Report, we structured our project into four primary modules:
+Following the feedback received on the Midterm Report, the project has been structured into four primary modules:
 
-mod0_data: This module lays out functions and parameters for preprocessing text from both the corpus and user input. Processes such as lemmatization, stemming, removal of stopwords, non-alphabetic characters, and punctuation are included in this module.
+mod0_data: This module outlines functions and parameters for preprocessing text from both the corpus and user input. Processes include lemmatization, stemming, removal of stopwords, non-alphabetic characters, and punctuation.
 
-mod1_model: This module constructs and saves the Latent Dirichlet Allocation (LDA) model used by our application, as well as the similarity matrix, using the preprocessed supervision plans as input.
+mod1_model: This module is responsible for constructing and saving the Latent Dirichlet Allocation (LDA) model used by the application, as well as the similarity matrix. It uses preprocessed supervision plans as input.
 
-mod2_vis: This module is responsible for generating visual outputs such as graphs, word clouds, and other graphical representations that are showcased by our application.
+mod2_vis: This module generates visual outputs such as graphs, word clouds, and other graphical representations displayed by the application.
 
-mod3_app: This module contains our Streamlit application. It is worth noting that the Streamlit app is hosted on this GitHub repository, and all files in the master root are included as they are necessary for the smooth running of the app.
+mod3_app: This module houses the Streamlit application. It should be noted that the Streamlit app is hosted on the GitHub repository, and all files in the master root are included as they are necessary for the smooth running of the app.
 
 ## Running the Application
-To execute our application, please ensure you have installed all packages listed in the requirements.txt file. Additionally, objects such as corpus_lemma, corpus_lemma.index, dict_lemma, corpus_stem, corpus_stem.index, dict_stem, sim_model, and lda_model, located in the main GitHub folder, are also required for the application to function correctly.`lda_model.id2word` and `lda_model.state`) -- all located in the main GitHub folder -- are also necessary to run the application. 
+To execute the application, it is necessary to install all packages listed in the requirements.txt file. Additionally, objects such as corpus_lemma, corpus_lemma.index, dict_lemma, corpus_stem, corpus_stem.index, dict_stem, sim_model, and lda_model, located in the main GitHub folder, are required for the application to operate correctly.
 
 
 ## References
